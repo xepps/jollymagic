@@ -99,7 +99,7 @@ module.exports = function(grunt) {
                     baseUrl: "app/assets/js/modules",
                     paths: {},
                     keepBuildDir: true,
-                    name: "hanleyandco/controller",
+                    name: "jollymagic/controller",
                     out: "static/js/controller.js",
                     optimize: "none"
                 }
