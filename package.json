@@ -1,0 +1,48 @@
+{
+    "name": "Jollymagic",
+    "version": "0.0.1",
+    "description": "Alan Jolly's Jollymagic.com",
+    "author": "Kristian Epps",
+    "contributors": [{
+        "name": "Kristian Epps",
+        "email": "kristian@xepps.com"
+    }],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/xepps/jollymagic"
+    },
+    "bugs": {
+        "url": "https://github.com/xepps/jollymagic/issues"
+    },
+    "readme": "https://github.com/xepps/jollymagic/blob/master/README.md",
+    "devDependencies": {
+        "grunt": "~0.4.5",
+        "grunt-composer": "~0.4.1",
+
+        "grunt-contrib-compass": "~0.9.1",
+        "grunt-contrib-copy": "~0.5.0",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.1",
+        "grunt-contrib-requirejs": "~0.4.0",
+        "grunt-contrib-sass": "~0.5.1",
+        "grunt-contrib-watch": "~0.6.1",
+
+        "grunt-phpunit": "~0.3.4",
+        "grunt-phpcs": "0.2.3",
+
+        "grunt-karma": "~0.6.2",
+        "karma": "~0.10.9",
+        "karma-chrome-launcher": "~0.1.0",
+        "karma-coverage": "~0.2.1",
+        "karma-html2js-preprocessor": "~0.1.0",
+        "karma-jasmine": "~0.1.0",
+        "karma-junit-reporter": "~0.1",
+        "karma-phantomjs-launcher": "~0.1.0",
+        "karma-requirejs": "~0.2.1",
+        "karma-script-launcher": "~0.1.0",
+
+        "requirejs": "~2.1.14",
+
+        "shelljs": "~0.2.5"
+    }
+}

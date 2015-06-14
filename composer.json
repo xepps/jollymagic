@@ -1,0 +1,18 @@
+{
+    "name" : "xepps/jollymagic",
+    "description": "Alan Jolly's Jollymagic.com",
+    "require": {
+        "silex/silex": "~1.2"
+    },
+    "require-dev" : {
+        "mockery/mockery": "0.8.*",
+        "phpunit/phpunit": "3.7.*",
+        "squizlabs/php_codesniffer": "1.*"
+    },
+    "autoload" : {
+        "classmap": [
+            "app/lib",
+            "app/tests"
+        ]
+    }
+}
