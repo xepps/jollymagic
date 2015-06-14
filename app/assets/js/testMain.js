@@ -7,7 +7,6 @@ for (var file in window.__karma__.files) {
     }
 }
 
-
 requirejs.config({
     baseUrl: '/base/app/assets/js/modules',
 
