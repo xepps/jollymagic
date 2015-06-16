@@ -6,6 +6,7 @@ use Jollymagic\Page\PageController;
 use Jollymagic\Image\ImageController;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class ServiceProvider implements ServiceProviderInterface
 {
@@ -35,6 +36,10 @@ class ServiceProvider implements ServiceProviderInterface
                 return new ViewResponse($viewPath, $viewArgs, $statusCode, $headers);
             };
         };
+
+        $app->before(function (Request $request) use ($app) {
+            $app['baseUrl'] = 'http://'.$request->getHttpHost();
+        });
     }
 
     public function boot(Application $app)

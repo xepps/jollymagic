@@ -30,7 +30,7 @@
     <div class="page-background">
         <div class="page-overlay">
             <div class="header">
-                <img src="/static/images/mr_jolly.png">
+                <img src="<?= $baseUrl ?>/image/mr_jolly.png">
             </div>
             <div class="body">
                 <h2 class="page-title">Mr Jolly's Children's Magic Show!</h2>

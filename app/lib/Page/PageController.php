@@ -17,7 +17,9 @@ class PageController
     {
         return $this->app['view-factory'](
             $page,
-            array()
+            array(
+                "baseUrl" => $this->app['baseUrl']
+            )
         );
     }
 }

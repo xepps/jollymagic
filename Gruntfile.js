@@ -120,6 +120,10 @@ module.exports = function(grunt) {
             jsVendor: {
                 files: ['app/assets/js/vendors/*.js'],
                 tasks: ['copy:jsVendor']
+            },
+            images: {
+                files: ['app/assets/images/*'],
+                tasks: ['copy:images']
             }
         }
     });
