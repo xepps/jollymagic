@@ -27,3 +27,8 @@ $phone-landscape: "481px";
         @content;
     }
 }
+
+html, body {
+    padding: 0;
+    margin: 0;
+}

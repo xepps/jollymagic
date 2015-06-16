@@ -19,3 +19,10 @@ $app->get(
         return $app['page-controller']->show('index');
     }
 );
+
+$app->get(
+    '/images/{image}',
+    function(Silex\Application $app, $image) {
+        return $app['image-controller']->show($image);
+    }
+);

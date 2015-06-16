@@ -3,6 +3,7 @@
 namespace Jollymagic;
 
 use Jollymagic\Page\PageController;
+use Jollymagic\Image\ImageController;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 
@@ -17,6 +18,12 @@ class ServiceProvider implements ServiceProviderInterface
             return new PageController(
                 $app,
                 $app['config']
+            );
+        };
+
+        $app['image-controller'] = function($app) {
+            return new ImageController(
+                $app
             );
         };
 
