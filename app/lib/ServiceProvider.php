@@ -31,7 +31,7 @@ class ServiceProvider implements ServiceProviderInterface
 
         $app['view-factory'] = function () {
             return function ($viewName, $viewArgs = array(), $statusCode = 200, $headers = array()) {
-                $viewPath = __DIR__ . '/../views/' . $viewName . '.php';
+                $viewPath = __DIR__ . '/views/' . $viewName . '.php';
                 return new ViewResponse($viewPath, $viewArgs, $statusCode, $headers);
             };
         };
