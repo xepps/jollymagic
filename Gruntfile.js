@@ -184,6 +184,7 @@ module.exports = function(grunt) {
     grunt.registerTask(
         'run-tests',
         [
+            'install-deps',
             'phpunit',
             'phpcs',
             'karma:unit',

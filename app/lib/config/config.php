@@ -2,8 +2,8 @@
 
 date_default_timezone_set("Europe/London");
 
-return Array(
-
-    "staticDir" => "/static",
-    "imageDir" => "/static/images"
+return array(
+    "routeDir" => __DIR__.'/../../../',
+    "staticDir" => "static",
+    "imageDir" => "static/images/"
 );

@@ -2,16 +2,25 @@
 
 namespace Jollymagic\Image;
 
-use Presenter;
+use Jollymagic\Presenter;
 
-class ImagePresenter implements Presenter {
+class ImagePresenter implements Presenter
+{
 
-    public function __construct($image, $directory = __DIR__) {
-        $this->_image = $image;
-        $this->_dir = $directory;
+    private $image;
+    private $imageDir;
+    private $imageExists;
+
+    public function __construct($image, $directory, ImageExistsChecker $imageExists)
+    {
+        $this->image = $image;
+        $this->imageDir = $directory;
+        $this->imageExists = $imageExists;
     }
 
-    public function present() {
-        return "$this->_dir/images/$this->_image";
+    public function present()
+    {
+        $imagePath = $this->imageDir.$this->image;
+        return $this->imageExists->check($imagePath) ? $imagePath : null;
     }
 }

@@ -1,7 +1,8 @@
 <?php
 
-interface Presenter {
+namespace Jollymagic;
 
+interface Presenter
+{
     public function present();
-
 }
