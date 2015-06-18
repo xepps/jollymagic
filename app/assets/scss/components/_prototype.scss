@@ -1,6 +1,6 @@
 .page-background {
     background-image: image-url('alan.jpeg');
-    background-position: center center;
+    background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
@@ -10,8 +10,6 @@
 
 .page-overlay {
     background-color: rgba(255, 255, 255, 0.6);
-    background-position: center center;
-    background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
     width: 100%;
@@ -29,7 +27,6 @@
     ul {
         margin-left: 0;
         padding: 0;
-        margin-top: 100px;
 
         li {
             list-style: none;
@@ -54,16 +51,39 @@
             }
         }
     }
-}
 
-.header {
-    img {
-        width: 400px;
+    .logo {
+        margin: 20px;
+
+        img {
+            height: 400px;
+        }
     }
 }
 
 .body {
-    display: none;
+    padding-top: 0;
+    margin: 400px 20px 20px 20px;
+    max-width: 1200px;
+
+    .page-title {
+        margin-top: 0;
+        line-height: 4rem;
+        font-size: 3rem;
+        font-family: Helvetica Neue;
+        font-weight: 300;
+        background-color: rgba(255,255,255,0.8);
+        display: inline-block;
+        padding: 2px;
+    }
+
+    p {
+        font-family: helvetica neue;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        background-color: rgba(255,255,255,0.8);
+        display: flex;
+        font-weight: 300;
+        padding: 4px;
+    }
 }
-
-
