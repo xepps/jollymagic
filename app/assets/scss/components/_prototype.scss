@@ -19,7 +19,6 @@
 
 .nav {
     display: block;
-    height: 100%;
     position: relative;
     z-index: 12;
     float: left;
@@ -51,20 +50,22 @@
             }
         }
     }
+}
 
-    .logo {
-        margin: 20px;
+.logo {
+    margin: 20px;
 
-        img {
-            height: 400px;
-        }
+    img {
+        width: 180px;
+        //            height: 400px;
     }
 }
 
 .body {
     padding-top: 0;
-    margin: 400px 20px 20px 20px;
+    margin: 20px;
     max-width: 1200px;
+//    margin-top: 400px;
 
     .page-title {
         margin-top: 0;
@@ -85,5 +86,41 @@
         display: flex;
         font-weight: 300;
         padding: 4px;
+    }
+}
+
+.menu_button {
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    border-radius: 50%;
+    border: 1px solid white;
+    z-index: 100;
+
+    &.menu_open {
+        background-color: #228b22;
+
+        &:hover {
+            background-color: darkgreen;
+        }
+    }
+
+    &.menu_close {
+        background-color: cornflowerblue;
+
+        &:hover {
+            background-color: royalblue;
+        }
+    }
+
+    .menu_text {
+        display: block;
+        margin: auto;
+        line-height: 50px;
+        font-size: 50px;
+        font-family: "helvetica neue";
+        color:white;
     }
 }

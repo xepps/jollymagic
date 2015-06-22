@@ -51,7 +51,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: "node_modules/requirejs/",
                 src: "require.js",
-                dest: "static/js/vendor/requirejs/"
+                dest: "static/js/"
             }
         },
         jshint: {

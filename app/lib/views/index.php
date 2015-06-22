@@ -4,42 +4,57 @@
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
 </head>
 <body>
-<div class="wrapper">
-    <div class="page-background">
-        <div class="page-overlay">
-            <div class="nav">
+    <div class="wrapper">
+        <div class="page-background">
+            <div class="page-overlay">
+                <button class="menu_button menu_close">
+    <!--                <span class="menu_text">☰</span>-->
+                    <span class="menu_text">X</span>
+                </button>
                 <div class="logo">
                     <img src="<?= $baseUrl ?>/image/mr_jolly.png">
                 </div>
-                <ul>
-                    <li>
-                        <a>Mr Jolly</a>
-                    </li>
-                    <li>
-                        <a>Safeguarding Children</a>
-                    </li>
-                    <li>
-                        <a>Close up Magic</a>
-                    </li>
-                    <li>
-                        <a>Balloon Modelling</a>
-                    </li>
-                    <li>
-                        <a>Casino Nights</a>
-                    </li>
-                    <li>
-                        <a>Booking Form</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="body">
-                <h2 class="page-title">Hi, I'm Alan Jolly!</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ac sem vehicula, vestibulum risus eu, porttitor libero. Morbi aliquam tellus a lectus mattis finibus. Pellentesque fermentum vel justo ut finibus.</p>
-                <p>Etiam posuere purus nec dui luctus, vitae tempor tellus convallis. Fusce mattis, lectus sed sodales vulputate, ante magna congue ligula, id viverra nulla dui in est.</p>
-                <p>Sed lacus tellus, ornare sit amet suscipit sed, viverra id mi. Sed ac risus vitae dolor maximus congue quis eleifend felis.</p>
+                <div class="nav">
+                    <ul>
+                        <li>
+                            <a>Mr Jolly</a>
+                        </li>
+                        <li>
+                            <a>Safeguarding Children</a>
+                        </li>
+                        <li>
+                            <a>Close up Magic</a>
+                        </li>
+                        <li>
+                            <a>Balloon Modelling</a>
+                        </li>
+                        <li>
+                            <a>Casino Nights</a>
+                        </li>
+                        <li>
+                            <a>Booking Form</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <h2 class="page-title">Hi, I'm Alan Jolly!</h2>
+                    <p>I have entertained children for over 25 years and I perform fun and colourful puppet and magic shows for children of all ages.</p>
+                    <p>I work hard to ensure the whole family is entertained. I can also provide party games with music and prizes.</p>
+                    <p>Please be assured I pass an annual P.N.C (Police National Computer) check, have all my electrical equipment P.A.T tested each year and hold extensive Public Liability Insurance for your peace of mind.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <script src="/static/js/require.js"></script>
+    <script src="/static/js/controller.js"></script>
+
+    <script>
+        require(["jollymagic/controller"], function(Controller) {
+            var controller = new Controller(document);
+            controller.init();
+        });
+    </script>
+
 </body>
 </html>
