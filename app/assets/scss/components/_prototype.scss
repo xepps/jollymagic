@@ -19,9 +19,13 @@
 
 .nav {
     display: block;
-    position: relative;
+    position: absolute;
     z-index: 12;
     float: left;
+    margin-right: 20px;
+    top: 120px;
+    background-color:white;
+    width: 100%;
 
     ul {
         margin-left: 0;
@@ -50,6 +54,21 @@
             }
         }
     }
+
+    &.nav_closed {
+        display: none;
+
+        @include desktop() {
+            display: block;
+        }
+    }
+
+    @include desktop() {
+        position: relative;
+        top: 0;
+        background-color: transparent;
+        width: initial;
+    }
 }
 
 .logo {
@@ -57,7 +76,10 @@
 
     img {
         width: 180px;
-        //            height: 400px;
+
+        @include desktop() {
+            width: 360px;
+        }
     }
 }
 
@@ -99,19 +121,35 @@
     border: 1px solid white;
     z-index: 100;
 
+    &.menu_close {
+        background-color: cornflowerblue;
+
+        &:hover {
+            background-color: royalblue;
+        }
+
+        .menu_open_text {
+            display: none;
+        }
+
+        .menu_close_text {
+            display: block;
+        }
+    }
+
     &.menu_open {
         background-color: #228b22;
 
         &:hover {
             background-color: darkgreen;
         }
-    }
 
-    &.menu_close {
-        background-color: cornflowerblue;
+        .menu_open_text {
+            display: block;
+        }
 
-        &:hover {
-            background-color: royalblue;
+        .menu_close_text {
+            display: none;
         }
     }
 
@@ -122,5 +160,9 @@
         font-size: 50px;
         font-family: "helvetica neue";
         color:white;
+    }
+
+    @include desktop() {
+        display: none;
     }
 }

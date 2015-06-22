@@ -7,14 +7,14 @@
     <div class="wrapper">
         <div class="page-background">
             <div class="page-overlay">
-                <button class="menu_button menu_close">
-    <!--                <span class="menu_text">☰</span>-->
-                    <span class="menu_text">X</span>
+                <button class="menu_button menu_open">
+                    <span class="menu_text menu_open_text">☰</span>
+                    <span class="menu_text menu_close_text">X</span>
                 </button>
                 <div class="logo">
                     <img src="<?= $baseUrl ?>/image/mr_jolly.png">
                 </div>
-                <div class="nav">
+                <div class="nav nav_closed">
                     <ul>
                         <li>
                             <a>Mr Jolly</a>

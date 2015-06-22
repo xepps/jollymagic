@@ -14,7 +14,7 @@ define(
 
             beforeEach(function() {
                 nav = createNodeWithClass('nav');
-                Util.addClass(nav, 'nav_closed');
+                Util.addClass(nav, 'nav_open');
                 button = createNodeWithClass('menu_button', 'button');
                 Util.addClass(button, 'menu_open');
                 menuButton = new MenuButton(nav, button);
@@ -41,13 +41,13 @@ define(
                 menuButton.init();
                 Util.fireEvent('click', {}, button);
 
-                expect(Util.hasClass(button, 'menu_close')).toBeTruthy();
                 expect(Util.hasClass(button, 'menu_open')).toBeFalsy();
+                expect(Util.hasClass(button, 'menu_close')).toBeTruthy();
 
                 Util.fireEvent('click', {}, button);
 
-                expect(Util.hasClass(button, 'menu_open')).toBeTruthy();
                 expect(Util.hasClass(button, 'menu_close')).toBeFalsy();
+                expect(Util.hasClass(button, 'menu_open')).toBeTruthy();
             });
 
         });
