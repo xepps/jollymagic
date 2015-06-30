@@ -13,7 +13,7 @@ define(
                 menuButton;
 
             beforeEach(function() {
-                nav = createNodeWithClass('nav');
+                nav = createNodeWithClass('nav', 'nav');
                 Util.addClass(nav, 'nav_open');
                 button = createNodeWithClass('menu_button', 'button');
                 Util.addClass(button, 'menu_open');

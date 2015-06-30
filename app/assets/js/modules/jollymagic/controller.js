@@ -16,7 +16,7 @@ define(
         };
 
         Controller.prototype.initMenuButton = function() {
-            var nav = this.page.querySelector('.nav'),
+            var nav = this.page.querySelector('nav'),
                 button = this.page.querySelector('.menu_button');
             this.menuButton = new MenuButton(nav, button);
             this.menuButton.init();

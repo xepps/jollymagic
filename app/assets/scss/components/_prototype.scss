@@ -3,27 +3,26 @@
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
-    position: absolute;
     width: 100%;
     height: 100%;
+    position: fixed;
 }
 
 .page-overlay {
     background-color: rgba(255, 255, 255, 0.6);
     background-size: cover;
-    position: absolute;
     width: 100%;
     height: 100%;
     z-index: 1;
+    position: fixed;
 }
 
-.nav {
+nav {
     display: block;
-    position: absolute;
+    position: relative;
     z-index: 12;
-    float: left;
-    margin-right: 20px;
-    top: 120px;
+    padding-top: 30px;
+    border-bottom: 5px solid red;
     background-color:white;
     width: 100%;
 
@@ -45,6 +44,7 @@
                 font-family: Helvetica Neue;
                 font-size: 2rem;
                 line-height: 4rem;
+                border-left: 5px solid transparent;
 
                 &:hover {
                     border-left: 5px solid red;
@@ -64,15 +64,19 @@
     }
 
     @include desktop() {
-        position: relative;
-        top: 0;
+        float: left;
         background-color: transparent;
+        border-bottom: 0;
+        margin-right: 20px;
         width: initial;
+        padding-top: 440px;
     }
 }
 
-.logo {
+header {
     margin: 20px;
+    z-index: 3;
+    position: relative;
 
     img {
         width: 180px;
@@ -81,13 +85,19 @@
             width: 360px;
         }
     }
+
+    @include desktop() {
+        position: absolute;
+        top: 0;
+    }
 }
 
-.body {
+main {
     padding-top: 0;
     margin: 20px;
     max-width: 1200px;
-//    margin-top: 400px;
+    z-index: 3;
+    position: relative;
 
     .page-title {
         margin-top: 0;
@@ -109,12 +119,16 @@
         font-weight: 300;
         padding: 4px;
     }
+
+    @include desktop() {
+        padding-top: 440px;
+    }
 }
 
 .menu_button {
     width: 80px;
     height: 80px;
-    position: fixed;
+    position: absolute;
     right: 20px;
     top: 20px;
     border-radius: 50%;
