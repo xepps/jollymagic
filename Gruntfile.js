@@ -51,7 +51,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: "node_modules/requirejs/",
                 src: "require.js",
-                dest: "static/js/vendor/requirejs/"
+                dest: "static/js/"
             }
         },
         jshint: {
@@ -120,6 +120,10 @@ module.exports = function(grunt) {
             jsVendor: {
                 files: ['app/assets/js/vendors/*.js'],
                 tasks: ['copy:jsVendor']
+            },
+            images: {
+                files: ['app/assets/images/*'],
+                tasks: ['copy:images']
             }
         }
     });
@@ -184,6 +188,7 @@ module.exports = function(grunt) {
     grunt.registerTask(
         'run-tests',
         [
+            'install-deps',
             'phpunit',
             'phpcs',
             'karma:unit',
