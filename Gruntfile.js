@@ -52,6 +52,12 @@ module.exports = function(grunt) {
                 cwd: "node_modules/requirejs/",
                 src: "require.js",
                 dest: "static/js/"
+            },
+            content: {
+                expand: true,
+                cwd: "app/assets/content/",
+                src: "*",
+                dest: "static/content/"
             }
         },
         jshint: {
@@ -124,6 +130,10 @@ module.exports = function(grunt) {
             images: {
                 files: ['app/assets/images/*'],
                 tasks: ['copy:images']
+            },
+            content: {
+                files: ['app/assets/content/*'],
+                tasks: ['copy:content']
             }
         }
     });
@@ -171,6 +181,7 @@ module.exports = function(grunt) {
             'requirejs:compile-dev',
             'copy:jsVendor',
             'copy:images',
+            'copy:content',
             'compass:dev'
         ]
     );
@@ -181,6 +192,7 @@ module.exports = function(grunt) {
             'requirejs:compile',
             'copy:jsVendor',
             'copy:images',
+            'copy:content',
             'compass:dist'
         ]
     );

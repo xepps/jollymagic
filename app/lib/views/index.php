@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <div class="page-background">
+    <div class="page-background" style="background-image: url('<?= $baseUrl.'/image/'.$content->backgroundImage ?>');">
         <div class="page-overlay">
         </div>
     </div>
@@ -18,24 +18,11 @@
 
     <nav class="nav_closed">
         <ul>
+            <? foreach ($nav as $navItem): ?>
             <li>
-                <a>Mr Jolly</a>
+                <a href="<?= $baseUrl.$navItem->url ?>"><?= $navItem->title ?></a>
             </li>
-            <li>
-                <a>Safeguarding Children</a>
-            </li>
-            <li>
-                <a>Close up Magic</a>
-            </li>
-            <li>
-                <a>Balloon Modelling</a>
-            </li>
-            <li>
-                <a>Casino Nights</a>
-            </li>
-            <li>
-                <a>Booking Form</a>
-            </li>
+            <? endforeach; ?>
         </ul>
     </nav>
 
@@ -44,10 +31,10 @@
     </header>
 
     <main>
-        <h2 class="page-title">Hi, I'm Alan Jolly!</h2>
-        <p>I have entertained children for over 25 years and I perform fun and colourful puppet and magic shows for children of all ages.</p>
-        <p>I work hard to ensure the whole family is entertained. I can also provide party games with music and prizes.</p>
-        <p>Please be assured I pass an annual P.N.C (Police National Computer) check, have all my electrical equipment P.A.T tested each year and hold extensive Public Liability Insurance for your peace of mind.</p>
+        <h2 class="page-title"><?= $content->title ?></h2>
+        <? foreach ($content->body as $paragraph): ?>
+        <p><?= $paragraph ?></p>
+        <? endforeach; ?>
     </main>
 
     <script src="/static/js/require.js"></script>
