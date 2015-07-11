@@ -2,10 +2,10 @@
 
 namespace Jollymagic\Content;
 
-class ContentPresenterTest extends \PHPUnit_Framework_TestCase
+class ContentControllerTest extends \PHPUnit_Framework_TestCase
 {
     /***
-     * @var ContentPresenter
+     * @var ContentController
      */
     private $contentPresenter;
     private $mockContentApi;
@@ -38,7 +38,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
             ),
         );
 
-        $this->contentPresenter = new ContentPresenter();
+        $this->contentPresenter = new ContentController();
         $this->contentPresenter->setApi($this->mockContentApi);
     }
 

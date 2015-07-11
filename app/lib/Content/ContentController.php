@@ -2,7 +2,7 @@
 
 namespace Jollymagic\Content;
 
-class ContentPresenter
+class ContentController
 {
     public function show($page)
     {
