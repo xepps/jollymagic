@@ -26,7 +26,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
                     "Paragraph two"
                 )
             ),
-            "secondPage" => (object) array(
+            "second" => (object) array(
                 "url" => "/second",
                 "navTitle" => "Title",
                 "backgroundImage" => "image.jpeg",
@@ -59,5 +59,12 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
             $this->assertEquals($this->mockContentApi->content[$key]->navTitle, $navItem->navTitle);
             $this->assertEquals($this->mockContentApi->content[$key]->url, $navItem->url);
         }
+    }
+
+    public function testThat404IsThrownIfPageNotFound()
+    {
+        $page = "doesNotExist";
+        $this->setExpectedException(get_class(new NoContentException($page)), "Page not found: $page", 404);
+        $this->contentPresenter->show($page);
     }
 }

@@ -26,6 +26,10 @@ class ContentPresenter
      */
     private function buildPageContents($page, $data)
     {
+        if (empty($data[$page])) {
+            throw new NoContentException($page);
+        }
+
         $pageData = $data[$page];
         return new Page(
             $pageData->title,
