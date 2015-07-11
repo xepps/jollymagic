@@ -6,7 +6,10 @@ use Jollymagic\Presenter;
 
 class ContentPresenter implements Presenter
 {
-    private $api;
+    /***
+     * @var ContentApi
+     */
+    public $api;
     private $page;
 
     public function __construct($page)
@@ -16,20 +19,12 @@ class ContentPresenter implements Presenter
 
     public function present()
     {
-        $data = $this->getApi()->fetchContent();
+        $data = $this->api->fetchContent();
 
         return (object) array(
             'content' => $this->buildPageContents($this->page, $data),
             'nav' => $this->buildNav($data)
         );
-    }
-
-    /***
-     * @param $api ContentApi
-     */
-    public function setApi($api)
-    {
-        $this->api = $api;
     }
 
     /***
@@ -64,13 +59,5 @@ class ContentPresenter implements Presenter
             },
             $data
         );
-    }
-
-    /***
-     * @return ContentApi
-     */
-    private function getApi()
-    {
-        return $this->api;
     }
 }

@@ -39,7 +39,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
     public function testThatAPagesDataIsReturnedWhenRequested()
     {
         $contentPresenter = new ContentPresenter('home');
-        $contentPresenter->setApi($this->mockContentApi);
+        $contentPresenter->api = $this->mockContentApi;
         $page = $contentPresenter->present();
 
         $this->assertEquals($this->mockContentApi->content->home->title, $page->content->title);
@@ -50,7 +50,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
     public function testThatTheNavIsReturnedAsPartOfAPage()
     {
         $contentPresenter = new ContentPresenter('home');
-        $contentPresenter->setApi($this->mockContentApi);
+        $contentPresenter->api = $this->mockContentApi;
         $page = $contentPresenter->present();
 
         foreach ($page->nav as $key => $navItem) {
@@ -65,7 +65,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException(get_class(new NoContentException($page)), "Page not found: $page", 404);
 
         $contentPresenter = new ContentPresenter($page);
-        $contentPresenter->setApi($this->mockContentApi);
+        $contentPresenter->api = $this->mockContentApi;
         $contentPresenter->present();
     }
 }
