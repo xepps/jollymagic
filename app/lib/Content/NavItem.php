@@ -4,12 +4,12 @@ namespace Jollymagic\Content;
 
 class NavItem
 {
-    public $navTitle;
+    public $title;
     public $url;
 
-    public function __construct($navTitle, $url)
+    public function __construct($title, $url)
     {
-        $this->navTitle = $navTitle;
+        $this->title = $title;
         $this->url = $url;
     }
 }

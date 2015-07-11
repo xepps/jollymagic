@@ -2,6 +2,7 @@
 
 namespace Jollymagic;
 
+use Jollymagic\Content\ContentController;
 use Jollymagic\Page\PageController;
 use Jollymagic\Image\ImageController;
 use Silex\Application;
@@ -35,6 +36,13 @@ class ServiceProvider implements ServiceProviderInterface
                 $viewPath = __DIR__ . '/views/' . $viewName . '.php';
                 return new ViewResponse($viewPath, $viewArgs, $statusCode, $headers);
             };
+        };
+
+        $app['content-controller'] = function ($app) {
+            return new ContentController(
+                $app,
+                $app['config']
+            );
         };
 
         $app->before(function (Request $request) use ($app) {

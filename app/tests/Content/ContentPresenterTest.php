@@ -2,12 +2,9 @@
 
 namespace Jollymagic\Content;
 
-class ContentControllerTest extends \PHPUnit_Framework_TestCase
+class ContentPresenterTest extends \PHPUnit_Framework_TestCase
 {
-    /***
-     * @var ContentController
-     */
-    private $contentPresenter;
+
     private $mockContentApi;
 
     public function setUp()
@@ -15,7 +12,7 @@ class ContentControllerTest extends \PHPUnit_Framework_TestCase
         parent::setUp();
 
         $this->mockContentApi = new MockContentApi();
-        $this->mockContentApi->content = array(
+        $this->mockContentApi->content = (object) array(
             "home" => (object) array(
                 "url" => "/",
                 "navTitle" => "Mr Jolly",
@@ -37,27 +34,28 @@ class ContentControllerTest extends \PHPUnit_Framework_TestCase
                 )
             ),
         );
-
-        $this->contentPresenter = new ContentController();
-        $this->contentPresenter->setApi($this->mockContentApi);
     }
 
     public function testThatAPagesDataIsReturnedWhenRequested()
     {
-        $page = $this->contentPresenter->show('home');
+        $contentPresenter = new ContentPresenter('home');
+        $contentPresenter->setApi($this->mockContentApi);
+        $page = $contentPresenter->present();
 
-        $this->assertEquals($this->mockContentApi->content['home']->title, $page->content->title);
-        $this->assertEquals($this->mockContentApi->content['home']->body, $page->content->body);
-        $this->assertEquals($this->mockContentApi->content['home']->backgroundImage, $page->content->backgroundImage);
+        $this->assertEquals($this->mockContentApi->content->home->title, $page->content->title);
+        $this->assertEquals($this->mockContentApi->content->home->body, $page->content->body);
+        $this->assertEquals($this->mockContentApi->content->home->backgroundImage, $page->content->backgroundImage);
     }
 
     public function testThatTheNavIsReturnedAsPartOfAPage()
     {
-        $page = $this->contentPresenter->show('home');
+        $contentPresenter = new ContentPresenter('home');
+        $contentPresenter->setApi($this->mockContentApi);
+        $page = $contentPresenter->present();
 
         foreach ($page->nav as $key => $navItem) {
-            $this->assertEquals($this->mockContentApi->content[$key]->navTitle, $navItem->navTitle);
-            $this->assertEquals($this->mockContentApi->content[$key]->url, $navItem->url);
+            $this->assertEquals($this->mockContentApi->content->{$key}->navTitle, $navItem->title);
+            $this->assertEquals($this->mockContentApi->content->{$key}->url, $navItem->url);
         }
     }
 
@@ -65,6 +63,9 @@ class ContentControllerTest extends \PHPUnit_Framework_TestCase
     {
         $page = "doesNotExist";
         $this->setExpectedException(get_class(new NoContentException($page)), "Page not found: $page", 404);
-        $this->contentPresenter->show($page);
+
+        $contentPresenter = new ContentPresenter($page);
+        $contentPresenter->setApi($this->mockContentApi);
+        $contentPresenter->present();
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Jollymagic\Page;
 
+use Jollymagic\Content\NoContentException;
+
 class PageController
 {
     protected $app;
@@ -15,11 +17,25 @@ class PageController
 
     public function show($page)
     {
+        $model = $this->getModel($page);
         return $this->app['view-factory'](
             $page,
             array(
-                "baseUrl" => $this->app['baseUrl']
+                "baseUrl" => $this->app['baseUrl'],
+                "content" => $model->content,
+                "nav" => $model->nav
             )
         );
+    }
+
+    private function getModel($page)
+    {
+        try {
+            return $this->app['content-controller']->show($page);
+        } catch (NoContentException $e) {
+            $this->app->abort(404, $e->getMessage());
+//            $model = $this->app['404-controller']->show();
+        }
+        return array();
     }
 }

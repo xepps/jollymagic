@@ -26,10 +26,3 @@ $app->get(
         return $app['image-controller']->show($image);
     }
 );
-
-$app->get(
-    '/content/{id}',
-    function (Silex\Application $app, $id) {
-        return $app['content-controller']->show($id);
-    }
-);
