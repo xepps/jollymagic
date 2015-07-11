@@ -26,7 +26,7 @@ class ContentPresenter
      */
     private function buildPageContents($page, $data)
     {
-        $pageData = $data->{$page};
+        $pageData = $data[$page];
         return new Page(
             $pageData->title,
             $pageData->body,
@@ -40,8 +40,11 @@ class ContentPresenter
      */
     private function buildNav($data)
     {
-        return array(
-            (object) array()
+        return array_map(
+            function ($page) {
+                return new NavItem($page->navTitle, $page->url);
+            },
+            $data
         );
     }
 

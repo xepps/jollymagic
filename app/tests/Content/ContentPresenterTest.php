@@ -4,10 +4,18 @@ namespace Jollymagic\Content;
 
 class ContentPresenterTest extends \PHPUnit_Framework_TestCase
 {
-    public function testThatAPagesDataIsReturnedWhenRequested()
+    /***
+     * @var ContentPresenter
+     */
+    private $contentPresenter;
+    private $mockContentApi;
+
+    public function setUp()
     {
-        $mockContentApi = new MockContentApi();
-        $mockContentApi->content = (object) array(
+        parent::setUp();
+
+        $this->mockContentApi = new MockContentApi();
+        $this->mockContentApi->content = array(
             "home" => (object) array(
                 "url" => "/",
                 "navTitle" => "Mr Jolly",
@@ -30,12 +38,26 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
             ),
         );
 
-        $contentPresenter = new ContentPresenter();
-        $contentPresenter->setApi($mockContentApi);
-        $page = $contentPresenter->show('home');
+        $this->contentPresenter = new ContentPresenter();
+        $this->contentPresenter->setApi($this->mockContentApi);
+    }
 
-        $this->assertEquals($mockContentApi->content->home->title, $page->content->title);
-        $this->assertEquals($mockContentApi->content->home->body, $page->content->body);
-        $this->assertEquals($mockContentApi->content->home->backgroundImage, $page->content->backgroundImage);
+    public function testThatAPagesDataIsReturnedWhenRequested()
+    {
+        $page = $this->contentPresenter->show('home');
+
+        $this->assertEquals($this->mockContentApi->content['home']->title, $page->content->title);
+        $this->assertEquals($this->mockContentApi->content['home']->body, $page->content->body);
+        $this->assertEquals($this->mockContentApi->content['home']->backgroundImage, $page->content->backgroundImage);
+    }
+
+    public function testThatTheNavIsReturnedAsPartOfAPage()
+    {
+        $page = $this->contentPresenter->show('home');
+
+        foreach ($page->nav as $key => $navItem) {
+            $this->assertEquals($this->mockContentApi->content[$key]->navTitle, $navItem->navTitle);
+            $this->assertEquals($this->mockContentApi->content[$key]->url, $navItem->url);
+        }
     }
 }
