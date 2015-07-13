@@ -13,7 +13,7 @@
     "safeguarding-children": {
         "url": "/safeguarding-children",
         "navTitle": "Safeguarding Children",
-        "backgroundImage": "alan.jpeg",
+        "backgroundImage": "owl.png",
         "title": "Safeguarding Children",
         "body": [
             "Our objective is to provide simple and clear messages to Primary School children [Key Stage 2; 7 to 11 years] on the subject of \"Community Safety and Cohesion\" to ensure personal safety measures are embedded at an early age, in under 50 minutes!",
@@ -24,7 +24,7 @@
     "close-up-magic": {
         "url": "/close-up-magic",
         "navTitle": "Close up Magic",
-        "backgroundImage": "alan.jpeg",
+        "backgroundImage": "cards.png",
         "title": "Close up Magic",
         "body": [
             "Whether you want \"stroll, meet and greet\" or \"table top entertaining\" you'll be amazed by top quality magic using everyday objects, performed in a fun and friendly way right before your eyes!",
@@ -36,7 +36,7 @@
     "balloon-modelling": {
         "url": "/balloon-modelling",
         "navTitle": "Balloon Modelling",
-        "backgroundImage": "alan.jpeg",
+        "backgroundImage": "balloons.png",
         "title": "Balloon Modelling",
         "body": [
             "Balloon modelling will not only bring fun & colour to your event but it also enhances the party atmosphere.",
@@ -47,7 +47,7 @@
     "booking": {
         "url": "/booking",
         "navTitle": "Booking Me!",
-        "backgroundImage": "alan.jpeg",
+        "backgroundImage": "demo.png",
         "title": "Booking Form",
         "body": [
         ]
