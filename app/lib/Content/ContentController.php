@@ -21,4 +21,11 @@ class ContentController
         );
         return $contentPresenter->present();
     }
+
+    public function show404Page()
+    {
+        $content = $this->show('404');
+        $content->statusCode = 404;
+        return $content;
+    }
 }

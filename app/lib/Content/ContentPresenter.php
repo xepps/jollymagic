@@ -23,7 +23,8 @@ class ContentPresenter implements Presenter
 
         return (object) array(
             'content' => $this->buildPageContents($this->page, $data),
-            'nav' => $this->buildNav($data)
+            'nav' => $this->buildNav($data),
+            'statusCode' => 404
         );
     }
 
@@ -55,6 +56,10 @@ class ContentPresenter implements Presenter
         $data = (array) $data;
         return array_map(
             function ($page) {
+                if (empty($page->navTitle) || empty($page->url)) {
+                    return new NullNavItem();
+                }
+
                 return new NavItem($page->navTitle, $page->url);
             },
             $data
