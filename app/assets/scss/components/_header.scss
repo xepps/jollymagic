@@ -1,0 +1,18 @@
+header {
+    margin: 20px;
+    z-index: 3;
+    position: relative;
+
+    img {
+        width: 180px;
+
+        @include desktop() {
+            width: 360px;
+        }
+    }
+
+    @include desktop() {
+        position: absolute;
+        top: 0;
+    }
+}
