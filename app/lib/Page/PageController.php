@@ -18,13 +18,15 @@ class PageController
     public function show($page = 'index')
     {
         $model = $this->getModel($page);
+
         return $this->app['view-factory'](
             'index',
             array(
                 "baseUrl" => $this->app['baseUrl'],
                 "content" => $model->content,
                 "nav" => $model->nav
-            )
+            ),
+            $model->statusCode
         );
     }
 
@@ -33,9 +35,7 @@ class PageController
         try {
             return $this->app['content-controller']->show($page);
         } catch (NoContentException $e) {
-            $this->app->abort(404, $e->getMessage());
-//            $model = $this->app['404-controller']->show();
+            return $this->app['content-controller']->show404Page();
         }
-        return array();
     }
 }
