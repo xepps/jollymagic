@@ -15,11 +15,11 @@ class PageController
         $this->config = $config;
     }
 
-    public function show($page)
+    public function show($page = 'index')
     {
         $model = $this->getModel($page);
         return $this->app['view-factory'](
-            $page,
+            'index',
             array(
                 "baseUrl" => $this->app['baseUrl'],
                 "content" => $model->content,
