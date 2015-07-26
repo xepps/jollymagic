@@ -2,7 +2,9 @@
 
 namespace Jollymagic\Components;
 
-class MockComponentPresenter
+use Jollymagic\Presenter;
+
+class MockComponentPresenter implements Presenter
 {
     public function present()
     {

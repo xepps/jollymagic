@@ -43,7 +43,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
                         "Paragraph one £&£",
                     ),
                     "components" => array(
-                        "MockComponentPresenter"
+                        "Jollymagic\\Components\\MockComponentPresenter"
                     )
                 )
         );

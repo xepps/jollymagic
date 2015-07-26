@@ -44,6 +44,7 @@ class ContentPresenter implements Presenter
         return new Page(
             $pageData->title,
             $this->convertBodyToHtml($pageData->bodyText),
+            $this->renderComponents($pageData->components),
             $pageData->backgroundImage
         );
     }
@@ -73,6 +74,10 @@ class ContentPresenter implements Presenter
      */
     private function convertBodyToHtml($bodyText)
     {
+        if (empty($bodyText)) {
+            return '';
+        }
+
         $pd = new \Parsedown();
         return array_reduce(
             $bodyText,
@@ -80,6 +85,25 @@ class ContentPresenter implements Presenter
                 return $carry . $pd->text($paragraph);
             },
             ''
+        );
+    }
+
+    /***
+     * @param String[]
+     * @return Array
+     */
+    private function renderComponents($components)
+    {
+        if (empty($components)) {
+            return array();
+        }
+
+        return array_map(
+            function ($componentName) {
+                $component = new $componentName();
+                return $component->present();
+            },
+            $components
         );
     }
 }
