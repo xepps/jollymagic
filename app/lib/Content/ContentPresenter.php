@@ -40,9 +40,10 @@ class ContentPresenter implements Presenter
         }
 
         $pageData = $data->{$page};
+
         return new Page(
             $pageData->title,
-            $pageData->body,
+            $this->convertBodyToHtml($pageData->bodyText),
             $pageData->backgroundImage
         );
     }
@@ -63,6 +64,22 @@ class ContentPresenter implements Presenter
                 return new NavItem($page->navTitle, $page->url);
             },
             $data
+        );
+    }
+
+    /***
+     * @param $bodyText
+     * @return String
+     */
+    private function convertBodyToHtml($bodyText)
+    {
+        $pd = new \Parsedown();
+        return array_reduce(
+            $bodyText,
+            function ($carry, $paragraph) use ($pd) {
+                return $carry . $pd->text($paragraph);
+            },
+            ''
         );
     }
 }
