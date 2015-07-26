@@ -55,7 +55,7 @@
     "404": {
         "backgroundImage": "alan.png",
         "title": "404 - Page not found",
-        "body": [
+        "bodyText": [
             "We're very sorry about this, but the page you requested could not be found.",
             "Please try pressing back in your browser or trying a different page from our navigation."
         ]
