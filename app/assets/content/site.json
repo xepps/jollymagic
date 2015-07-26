@@ -28,9 +28,9 @@
         "title": "Close up Magic",
         "bodyText": [
             "Whether you want \"stroll, meet and greet\" or \"table top entertaining\" you'll be amazed by top quality magic using everyday objects, performed in a fun and friendly way right before your eyes!",
-            "Why not ask me to perform my unique Victorian Street Magic Act, which encapsulates the ancient art of street chicanery where the quickness of hand deceives the eye. In addition, why not create the perfect end to your successful night with a touch of my humourous Cabaret / Parlour Magic Show!",
-            "Please be assured I pass an annual P.N.C (Police National Computer) check, have all my electrical equipment P.A.T tested each year and hold extensive Public Liability Insurance for your peace of mind.",
-            "Ideal for your private party, wedding, Christening, that special birthday, corporate event, trade show or graduation!"
+            "Why not ask me ```to perform my unique Victorian Street Magic Act```, which encapsulates the ancient art of street chicanery where the quickness of hand deceives the eye. In addition, why not create the perfect end to your successful night with a touch of my _humourous_ __Cabaret__ / Parlour Magic Show!",
+            "Please be assured I pass an annual P.N.C (Police National Computer) check, have all my electrical equipment P.A.T tested each year and hold `extensive` Public Liability Insurance for your peace of mind.",
+            ">Ideal for your private party, wedding, Christening, that special birthday, corporate event, trade show or graduation!"
         ]
     },
     "balloon-modelling": {
