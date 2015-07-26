@@ -2,9 +2,10 @@
 
 namespace Jollymagic\Content;
 
+use Jollymagic\Components\MockComponentPresenter;
+
 class ContentPresenterTest extends \PHPUnit_Framework_TestCase
 {
-
     private $mockContentApi;
 
     public function setUp()
@@ -33,6 +34,18 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
                     "Paragraph two"
                 )
             ),
+            "booking" => (object) array(
+                    "url" => "/booking",
+                    "navTitle" => "booking",
+                    "backgroundImage" => "image.jpeg",
+                    "title" => "Book me",
+                    "bodyText" => array(
+                        "Paragraph one £&£",
+                    ),
+                    "components" => array(
+                        "MockComponentPresenter"
+                    )
+                )
         );
     }
 
@@ -69,5 +82,16 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
         $contentPresenter = new ContentPresenter($page);
         $contentPresenter->api = $this->mockContentApi;
         $contentPresenter->present();
+    }
+
+    public function testThatPageComponentsGetRendered()
+    {
+        $mockComponent = new MockComponentPresenter();
+        $expectedContent = $mockComponent->present();
+        $contentPresenter = new ContentPresenter("booking");
+        $contentPresenter->api = $this->mockContentApi;
+        $page = $contentPresenter->present();
+
+        $this->assertEquals($expectedContent, $page->content->components[0]);
     }
 }
