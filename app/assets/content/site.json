@@ -48,9 +48,7 @@
         "url": "/booking",
         "navTitle": "Book Me!",
         "backgroundImage": "demo.png",
-        "title": "Booking Form",
-        "bodyText": [
-        ]
+        "title": "Booking Form"
     },
     "404": {
         "backgroundImage": "alan.png",

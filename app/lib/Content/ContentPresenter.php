@@ -41,10 +41,20 @@ class ContentPresenter implements Presenter
 
         $pageData = $data->{$page};
 
+        $bodyText = '';
+        if (!empty($pageData->bodyText)) {
+            $bodyText = $this->convertBodyToHtml($pageData->bodyText);
+        }
+
+        $pageComponents = array();
+        if (!empty($pageData->components)) {
+            $pageComponents = $this->renderComponents($pageData->components);
+        }
+
         return new Page(
             $pageData->title,
-            $this->convertBodyToHtml($pageData->bodyText),
-            $this->renderComponents($pageData->components),
+            $bodyText,
+            $pageComponents,
             $pageData->backgroundImage
         );
     }
