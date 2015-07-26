@@ -46,7 +46,7 @@
     },
     "booking": {
         "url": "/booking",
-        "navTitle": "Booking Me!",
+        "navTitle": "Book Me!",
         "backgroundImage": "demo.png",
         "title": "Booking Form",
         "bodyText": [
