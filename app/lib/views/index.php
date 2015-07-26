@@ -32,9 +32,7 @@
 
     <main>
         <h2 class="page-title"><?= $content->title ?></h2>
-        <? foreach ($content->body as $paragraph): ?>
-        <p><?= $paragraph ?></p>
-        <? endforeach; ?>
+        <?= $content->body ?>
     </main>
 
     <script src="/static/js/require.js"></script>

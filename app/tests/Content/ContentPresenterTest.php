@@ -18,8 +18,8 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
                 "navTitle" => "Mr Jolly",
                 "backgroundImage" => "alan.jpeg",
                 "title" => "Hi, I'm Al Jolly",
-                "body" => array(
-                    "Paragraph one £&£",
+                "bodyText" => array(
+                    "Paragraph __one__ £&£",
                     "Paragraph two"
                 )
             ),
@@ -28,7 +28,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
                 "navTitle" => "Title",
                 "backgroundImage" => "image.jpeg",
                 "title" => "Hi, I'm Al Jolly",
-                "body" => array(
+                "bodyText" => array(
                     "Paragraph one £&£",
                     "Paragraph two"
                 )
@@ -38,12 +38,14 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
 
     public function testThatAPagesDataIsReturnedWhenRequested()
     {
+        $expectedBodyText = "<p>Paragraph <strong>one</strong> £&amp;£</p><p>Paragraph two</p>";
+
         $contentPresenter = new ContentPresenter('home');
         $contentPresenter->api = $this->mockContentApi;
         $page = $contentPresenter->present();
 
         $this->assertEquals($this->mockContentApi->content->home->title, $page->content->title);
-        $this->assertEquals($this->mockContentApi->content->home->body, $page->content->body);
+        $this->assertEquals($expectedBodyText, $page->content->body);
         $this->assertEquals($this->mockContentApi->content->home->backgroundImage, $page->content->backgroundImage);
     }
 
