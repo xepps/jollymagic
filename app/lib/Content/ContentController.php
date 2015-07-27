@@ -15,7 +15,7 @@ class ContentController
 
     public function show($page)
     {
-        $contentPresenter = new ContentPresenter($page);
+        $contentPresenter = new ContentPresenter($page, $this->config);
         $contentPresenter->api = new FileBasedContentApi(
             $this->config['routeDir'].$this->config['contentDir']
         );

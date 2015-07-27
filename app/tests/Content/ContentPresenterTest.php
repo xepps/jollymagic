@@ -53,7 +53,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
     {
         $expectedBodyText = "<p>Paragraph <strong>one</strong> £&amp;£</p><p>Paragraph two</p>";
 
-        $contentPresenter = new ContentPresenter('home');
+        $contentPresenter = new ContentPresenter('home', null);
         $contentPresenter->api = $this->mockContentApi;
         $page = $contentPresenter->present();
 
@@ -64,7 +64,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
 
     public function testThatTheNavIsReturnedAsPartOfAPage()
     {
-        $contentPresenter = new ContentPresenter('home');
+        $contentPresenter = new ContentPresenter('home', null);
         $contentPresenter->api = $this->mockContentApi;
         $page = $contentPresenter->present();
 
@@ -79,7 +79,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
         $page = "doesNotExist";
         $this->setExpectedException(get_class(new NoContentException($page)), "Page not found: $page", 404);
 
-        $contentPresenter = new ContentPresenter($page);
+        $contentPresenter = new ContentPresenter($page, null);
         $contentPresenter->api = $this->mockContentApi;
         $contentPresenter->present();
     }
@@ -88,7 +88,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
     {
         $mockComponent = new MockComponentPresenter();
         $expectedContent = $mockComponent->present();
-        $contentPresenter = new ContentPresenter("booking");
+        $contentPresenter = new ContentPresenter("booking", null);
         $contentPresenter->api = $this->mockContentApi;
         $page = $contentPresenter->present();
 

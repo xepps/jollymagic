@@ -11,10 +11,12 @@ class ContentPresenter implements Presenter
      */
     public $api;
     private $page;
+    private $config;
 
-    public function __construct($page)
+    public function __construct($page, $config)
     {
         $this->page = $page;
+        $this->config = $config;
     }
 
     public function present()
@@ -110,7 +112,7 @@ class ContentPresenter implements Presenter
 
         return array_map(
             function ($componentName) {
-                $component = new $componentName();
+                $component = new $componentName($this->config);
                 return $component->present();
             },
             $components
