@@ -4,6 +4,7 @@ namespace Jollymagic\Components;
 
 use Jollymagic\Presenter;
 use DOMDocument;
+use DOMAttr;
 
 class BookingFormPresenter implements Presenter
 {
@@ -30,41 +31,91 @@ class BookingFormPresenter implements Presenter
     {
         $dd = new DOMDocument();
         $formTag = $dd->createElement('form');
-        $formMethod = $dd->createAttribute('method');
-        $formMethod->value = $form->method;
-        $formTag->appendChild($formMethod);
+        $formTag->appendChild(
+            $this->createAttribute(
+                $dd,
+                'method',
+                $form->method
+            )
+        );
 
         foreach ($form->inputs as $input) {
-            $label = $dd->createElement('label', $input->title);
-            $labelFor = $dd->createAttribute('for');
-            $labelFor->value = $input->name;
-            $label->appendChild($labelFor);
-
-            $tag = $dd->createElement('input');
-
-            $tagType = $dd->createAttribute('type');
-            $tagType->value = $input->type;
-            $tag->appendChild($tagType);
-
-            $tagName = $dd->createAttribute('name');
-            $tagName->value = $input->name;
-            $tag->appendChild($tagName);
-
-            $tagId = $dd->createAttribute('id');
-            $tagId->value = $input->name;
-            $tag->appendChild($tagId);
-
-            $tagValue = $dd->createAttribute('value');
-            $tagValue->value = $input->defaultValue;
-            $tag->appendChild($tagValue);
-
-            $formTag->appendChild($label);
-            $formTag->appendChild($tag);
+            $formTag->appendChild($this->createLabel($dd, $input));
+            $formTag->appendChild($this->createInput($dd, $input));
         }
 
         $dd->appendChild($formTag);
 
         return $dd->saveHTML();
+    }
+
+    /***
+     * @param DOMDocument $domDocument
+     * @param $input
+     * @return DOMDocument
+     */
+    private function createLabel($domDocument, $input)
+    {
+        $label = $domDocument->createElement('label', $input->title);
+        $labelFor = $domDocument->createAttribute('for');
+        $labelFor->value = $input->name;
+        $label->appendChild($labelFor);
+
+        return $label;
+    }
+
+    /***
+     * @param DOMDocument $domDocument
+     * @param $input
+     * @return DOMDocument
+     */
+    private function createInput($domDocument, $input)
+    {
+        $inputTag = $domDocument->createElement('input');
+
+        $inputTag->appendChild(
+            $this->createAttribute(
+                $domDocument,
+                'type',
+                $input->type
+            )
+        );
+        $inputTag->appendChild(
+            $this->createAttribute(
+                $domDocument,
+                'name',
+                $input->name
+            )
+        );
+        $inputTag->appendChild(
+            $this->createAttribute(
+                $domDocument,
+                'id',
+                $input->name
+            )
+        );
+        $inputTag->appendChild(
+            $this->createAttribute(
+                $domDocument,
+                'value',
+                $input->defaultValue
+            )
+        );
+
+        return $inputTag;
+    }
+
+    /***
+     * @param DOMDocument $domDocument
+     * @param $name
+     * @param $value
+     * @return DOMAttr
+     */
+    private function createAttribute($domDocument, $name, $value)
+    {
+        $attr = $domDocument->createAttribute($name);
+        $attr->value = $value;
+        return $attr;
     }
 
     private function getForm()
