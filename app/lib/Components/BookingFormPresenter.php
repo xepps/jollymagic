@@ -10,6 +10,7 @@ class BookingFormPresenter implements Presenter
 {
     public $form;
     private $config;
+    public $formName = 'bookingForm';
 
     public function __construct($config)
     {
@@ -22,9 +23,7 @@ class BookingFormPresenter implements Presenter
     public function present()
     {
         $form = $this->getForm();
-        return trim(
-            $this->createForm($form)
-        );
+        return $this->createForm($form);
     }
 
     private function createForm($form)
@@ -59,7 +58,7 @@ class BookingFormPresenter implements Presenter
 
         $dd->appendChild($formTag);
 
-        return $dd->saveHTML();
+        return trim($dd->saveHTML());
     }
 
     /***
@@ -185,14 +184,14 @@ class BookingFormPresenter implements Presenter
             $this->createAttribute(
                 $domDocument,
                 'name',
-                $input->name
+                $this->formName
             )
         );
         $submitButton->appendChild(
             $this->createAttribute(
                 $domDocument,
                 'id',
-                $input->name
+                $this->formName
             )
         );
 

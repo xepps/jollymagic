@@ -1,4 +1,7 @@
 <?php
+
+use Symfony\Component\HttpFoundation\Request;
+
 $app->get(
     '/status',
     function () {
@@ -14,9 +17,10 @@ $app->get(
 );
 
 $app->post(
-    '/{page}',
-    function (Silex\Application $app, $page) {
-        return $app['page-controller']->show($page);
+    '/booking',
+    function (Silex\Application $app, Request $request) {
+        var_dump($request->get('phone-number'));die;
+        return $app['page-controller']->show('booking');
     }
 );
 

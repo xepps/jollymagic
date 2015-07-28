@@ -11,6 +11,7 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
     {
         $bookingForm = new BookingFormPresenter(null);
         $bookingForm->form = $input;
+        $bookingForm->formName = 'formyForm';
         $renderedHtml = $bookingForm->present();
         $this->assertEquals($expected, $renderedHtml);
     }
@@ -90,13 +91,12 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
                     'inputs' => array(
                         (object) array(
                             'type' => 'submit',
-                            'name' => 'submit',
                             'title' => 'title'
                         )
                     )
                 ),
                 '<form method="post">' .
-                '<input type="submit" value="title" name="submit" id="submit">' .
+                '<input type="submit" value="title" name="formyForm" id="formyForm">' .
                 '</form>'
             ),
             array(
@@ -123,7 +123,6 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
                         ),
                         (object) array(
                             'type' => 'submit',
-                            'name' => 'submit',
                             'title' => 'title'
                         )
                     )
@@ -134,8 +133,8 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
                 '<label for="test2">Test Item2</label>' .
                 '<input type="text" name="test2" id="test2" placeholder="default2">' .
                 '<label for="test">test text area</label>' .
-                '<textarea id="test" name="test">default text</textarea>' .
-                '<input type="submit" value="title" name="submit" id="submit">' .
+                '<textarea id="test" name="test" placeholder="default text"></textarea>' .
+                '<input type="submit" value="title" name="formyForm" id="formyForm">' .
                 '</form>'
             )
         );
