@@ -107,13 +107,16 @@ class BookingFormPresenter implements Presenter
                 $input->name
             )
         );
-        $textInput->appendChild(
-            $this->createAttribute(
-                $domDocument,
-                'value',
-                $input->defaultValue
-            )
-        );
+
+        if (isset($input->defaultValue)) {
+            $textInput->appendChild(
+                $this->createAttribute(
+                    $domDocument,
+                    'placeholder',
+                    $input->defaultValue
+                )
+            );
+        }
 
         return $textInput;
     }
@@ -125,7 +128,7 @@ class BookingFormPresenter implements Presenter
      */
     private function createTextArea($domDocument, $input)
     {
-        $textArea = $domDocument->createElement('textarea', $input->defaultValue);
+        $textArea = $domDocument->createElement('textarea');
 
         $textArea->appendChild(
             $this->createAttribute(
@@ -141,6 +144,16 @@ class BookingFormPresenter implements Presenter
                 $input->name
             )
         );
+
+        if (isset($input->defaultValue)) {
+            $textArea->appendChild(
+                $this->createAttribute(
+                    $domDocument,
+                    'placeholder',
+                    $input->defaultValue
+                )
+            );
+        }
 
         return $textArea;
     }
@@ -203,7 +216,9 @@ class BookingFormPresenter implements Presenter
     {
         return $this->form ?: json_decode(
             file_get_contents(
-                $this->config['contentDir'].'bookingForm.json'
+                $this->config['routeDir'].
+                $this->config['contentDir'].
+                'bookingForm.json'
             )
         );
     }

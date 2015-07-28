@@ -1,0 +1,56 @@
+{
+    "method": "post",
+    "inputs": [
+        {
+            "type": "text",
+            "name": "name",
+            "title": "Name"
+        },
+        {
+            "type": "text",
+            "name": "phone-number",
+            "title": "Phone Number"
+        },
+        {
+            "type": "text",
+            "name": "email-address",
+            "title": "Email Address"
+        },
+        {
+            "type": "text",
+            "name": "date-of-event",
+            "title": "Date of Event"
+        },
+        {
+            "type": "text",
+            "name": "type-of-event",
+            "title": "Type of Event"
+        },
+        {
+            "type": "text",
+            "name": "venue",
+            "title": "Venue / Location"
+        },
+        {
+            "type": "text",
+            "name": "type-of-entertainment",
+            "title": "Type of Entertainment"
+        },
+        {
+            "type": "text",
+            "name": "number-of-guests",
+            "title": "Number of Guests"
+        },
+        {
+            "type": "textarea",
+            "name": "any-other-info",
+            "title": "Any other info",
+            "defaultValue": "Please detail here..."
+        },
+        {
+            "type": "submit",
+            "name": "submit",
+            "title": "Send"
+        }
+    ]
+}

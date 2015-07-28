@@ -32,7 +32,23 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
                 ),
                 '<form method="post">' .
                 '<label for="test">Test Item</label>' .
-                '<input type="text" name="test" id="test" value="default">' .
+                '<input type="text" name="test" id="test" placeholder="default">' .
+                '</form>'
+            ),
+            array(
+                (object) array(
+                    'method' => 'post',
+                    'inputs' => array(
+                        (object) array(
+                            "type" => "text",
+                            "name" => "test",
+                            "title" => "Test Item",
+                        )
+                    )
+                ),
+                '<form method="post">' .
+                '<label for="test">Test Item</label>' .
+                '<input type="text" name="test" id="test">' .
                 '</form>'
             ),
             array(
@@ -49,7 +65,23 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
                 ),
                 '<form method="get">' .
                 '<label for="test">test text area</label>' .
-                '<textarea id="test" name="test">default text</textarea>' .
+                '<textarea id="test" name="test" placeholder="default text"></textarea>' .
+                '</form>'
+            ),
+            array(
+                (object) array(
+                    'method' => 'get',
+                    'inputs' => array(
+                        (object) array(
+                            'type' => 'textarea',
+                            'name' => 'test',
+                            'title' => 'test text area',
+                        )
+                    )
+                ),
+                '<form method="get">' .
+                '<label for="test">test text area</label>' .
+                '<textarea id="test" name="test"></textarea>' .
                 '</form>'
             ),
             array(
@@ -98,9 +130,9 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
                 ),
                 '<form method="post">' .
                 '<label for="test1">Test Item1</label>' .
-                '<input type="text" name="test1" id="test1" value="default1">' .
+                '<input type="text" name="test1" id="test1" placeholder="default1">' .
                 '<label for="test2">Test Item2</label>' .
-                '<input type="text" name="test2" id="test2" value="default2">' .
+                '<input type="text" name="test2" id="test2" placeholder="default2">' .
                 '<label for="test">test text area</label>' .
                 '<textarea id="test" name="test">default text</textarea>' .
                 '<input type="submit" value="title" name="submit" id="submit">' .

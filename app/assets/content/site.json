@@ -48,7 +48,10 @@
         "url": "/booking",
         "navTitle": "Book Me!",
         "backgroundImage": "demo.png",
-        "title": "Booking Form"
+        "title": "Booking Form",
+        "components": [
+            "Jollymagic\\Components\\BookingFormPresenter"
+        ]
     },
     "404": {
         "backgroundImage": "alan.png",

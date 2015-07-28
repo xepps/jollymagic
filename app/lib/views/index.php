@@ -33,6 +33,9 @@
     <main>
         <h2 class="page-title"><?= $content->title ?></h2>
         <?= $content->body ?>
+        <? foreach($content->components as $component): ?>
+        <?= $component ?>
+        <? endforeach; ?>
     </main>
 
     <script src="/static/js/require.js"></script>

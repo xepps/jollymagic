@@ -13,6 +13,13 @@ $app->get(
     }
 );
 
+$app->post(
+    '/{page}',
+    function (Silex\Application $app, $page) {
+        return $app['page-controller']->show($page);
+    }
+);
+
 $app->get(
     '',
     function (Silex\Application $app) {
