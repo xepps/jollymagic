@@ -40,8 +40,21 @@ class BookingFormPresenter implements Presenter
         );
 
         foreach ($form->inputs as $input) {
-            $formTag->appendChild($this->createLabel($dd, $input));
-            $formTag->appendChild($this->createInput($dd, $input));
+            switch ($input->type) {
+                case 'text':
+                    $formTag->appendChild($this->createLabel($dd, $input));
+                    $formTag->appendChild($this->createTextInput($dd, $input));
+                    break;
+                case 'textarea':
+                    $formTag->appendChild($this->createLabel($dd, $input));
+                    $formTag->appendChild($this->createTextArea($dd, $input));
+                    break;
+                case 'submit':
+                    $formTag->appendChild($this->createSubmitButton($dd, $input));
+                    break;
+                case 'default':
+                    break;
+            }
         }
 
         $dd->appendChild($formTag);
@@ -69,32 +82,32 @@ class BookingFormPresenter implements Presenter
      * @param $input
      * @return DOMDocument
      */
-    private function createInput($domDocument, $input)
+    private function createTextInput($domDocument, $input)
     {
-        $inputTag = $domDocument->createElement('input');
+        $textInput = $domDocument->createElement('input');
 
-        $inputTag->appendChild(
+        $textInput->appendChild(
             $this->createAttribute(
                 $domDocument,
                 'type',
                 $input->type
             )
         );
-        $inputTag->appendChild(
+        $textInput->appendChild(
             $this->createAttribute(
                 $domDocument,
                 'name',
                 $input->name
             )
         );
-        $inputTag->appendChild(
+        $textInput->appendChild(
             $this->createAttribute(
                 $domDocument,
                 'id',
                 $input->name
             )
         );
-        $inputTag->appendChild(
+        $textInput->appendChild(
             $this->createAttribute(
                 $domDocument,
                 'value',
@@ -102,7 +115,75 @@ class BookingFormPresenter implements Presenter
             )
         );
 
-        return $inputTag;
+        return $textInput;
+    }
+
+    /***
+     * @param DOMDocument $domDocument
+     * @param $input
+     * @return DOMDocument
+     */
+    private function createTextArea($domDocument, $input)
+    {
+        $textArea = $domDocument->createElement('textarea', $input->defaultValue);
+
+        $textArea->appendChild(
+            $this->createAttribute(
+                $domDocument,
+                'id',
+                $input->name
+            )
+        );
+        $textArea->appendChild(
+            $this->createAttribute(
+                $domDocument,
+                'name',
+                $input->name
+            )
+        );
+
+        return $textArea;
+    }
+
+    /***
+     * @param DOMDocument $domDocument
+     * @param $input
+     * @return DOMDocument
+     */
+    private function createSubmitButton($domDocument, $input)
+    {
+        $submitButton = $domDocument->createElement('input');
+
+        $submitButton->appendChild(
+            $this->createAttribute(
+                $domDocument,
+                'type',
+                $input->type
+            )
+        );
+        $submitButton->appendChild(
+            $this->createAttribute(
+                $domDocument,
+                'value',
+                $input->title
+            )
+        );
+        $submitButton->appendChild(
+            $this->createAttribute(
+                $domDocument,
+                'name',
+                $input->name
+            )
+        );
+        $submitButton->appendChild(
+            $this->createAttribute(
+                $domDocument,
+                'id',
+                $input->name
+            )
+        );
+
+        return $submitButton;
     }
 
     /***
