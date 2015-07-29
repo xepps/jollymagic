@@ -27,7 +27,7 @@ class ContentPresenter implements Presenter
         return (object) array(
             'content' => $this->buildPageContents($this->page, $data),
             'nav' => $this->buildNav($data),
-            'statusCode' => 404
+            'statusCode' => 200
         );
     }
 
