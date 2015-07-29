@@ -4,22 +4,26 @@
         {
             "type": "text",
             "name": "name",
-            "title": "Name"
+            "title": "Name",
+            "required": true
         },
         {
             "type": "text",
             "name": "phone-number",
-            "title": "Phone Number"
+            "title": "Phone Number",
+            "required": true
         },
         {
             "type": "text",
             "name": "email-address",
-            "title": "Email Address"
+            "title": "Email Address",
+            "required": true
         },
         {
             "type": "text",
             "name": "date-of-event",
-            "title": "Date of Event"
+            "title": "Date of Event",
+            "required": true
         },
         {
             "type": "text",

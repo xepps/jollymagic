@@ -54,6 +54,23 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
             ),
             array(
                 (object) array(
+                    'method' => 'post',
+                    'inputs' => array(
+                        (object) array(
+                            "type" => "text",
+                            "name" => "test",
+                            "title" => "Test Item",
+                            "required" => true
+                        )
+                    )
+                ),
+                '<form method="post">' .
+                '<label for="test" class="required">Test Item</label>' .
+                '<input type="text" name="test" id="test" class="required">' .
+                '</form>'
+            ),
+            array(
+                (object) array(
                     'method' => 'get',
                     'inputs' => array(
                         (object) array(
@@ -67,6 +84,24 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
                 '<form method="get">' .
                 '<label for="test">test text area</label>' .
                 '<textarea id="test" name="test" placeholder="default text"></textarea>' .
+                '</form>'
+            ),
+            array(
+                (object) array(
+                    'method' => 'get',
+                    'inputs' => array(
+                        (object) array(
+                            'type' => 'textarea',
+                            'name' => 'test',
+                            'title' => 'test text area',
+                            'defaultValue' => 'default text',
+                            'required' => true
+                        )
+                    )
+                ),
+                '<form method="get">' .
+                '<label for="test" class="required">test text area</label>' .
+                '<textarea id="test" name="test" placeholder="default text" class="required"></textarea>' .
                 '</form>'
             ),
             array(

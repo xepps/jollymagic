@@ -21,18 +21,8 @@ class BookingFormHandler
      */
     public function handle($request)
     {
-        $response = $this->createBlankResponse();
+        $response = $this->generateResponseFromRequest($request);
 
-        foreach ($this->getForm()->inputs as $input) {
-
-            $response->{$input->name} = $request->get($input->name);
-
-            if ($this->isRequiredButNotSet($input, $response->{$input->name})) {
-                $response->success = false;
-                $response->errors []= $input->name;
-            }
-
-        }
         return $response;
     }
 
@@ -58,5 +48,30 @@ class BookingFormHandler
             "success" => true,
             "errors" => []
         );
+    }
+
+    /**
+     * @param Request $request
+     * @return object
+     */
+    private function generateResponseFromRequest($request)
+    {
+        $response = $this->createBlankResponse();
+
+        foreach ($this->getForm()->inputs as $input) {
+
+            if (!isset($input->name)) {
+                continue;
+            }
+
+            $response->{$input->name} = $request->get($input->name);
+
+            if ($this->isRequiredButNotSet($input, $response->{$input->name})) {
+                $response->success = false;
+                $response->errors [] = $input->name;
+            }
+
+        }
+        return $response;
     }
 }

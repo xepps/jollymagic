@@ -24,8 +24,13 @@ class BookingFormPresenter implements Presenter
      */
     public function present()
     {
-        $form = $this->getForm();
-        return $this->createForm($form);
+        if (!empty($this->opts)) {
+            return print_r($this->opts, true);
+        } else {
+            $form = $this->getForm();
+            return $this->createForm($form);
+        }
+
     }
 
     private function createForm($form)
@@ -75,6 +80,16 @@ class BookingFormPresenter implements Presenter
         $labelFor->value = $input->name;
         $label->appendChild($labelFor);
 
+        if (isset($input->required) && $input->required) {
+            $label->appendChild(
+                $this->createAttribute(
+                    $domDocument,
+                    'class',
+                    'required'
+                )
+            );
+        }
+
         return $label;
     }
 
@@ -119,6 +134,16 @@ class BookingFormPresenter implements Presenter
             );
         }
 
+        if (isset($input->required) && $input->required) {
+            $textInput->appendChild(
+                $this->createAttribute(
+                    $domDocument,
+                    'class',
+                    'required'
+                )
+            );
+        }
+
         return $textInput;
     }
 
@@ -152,6 +177,16 @@ class BookingFormPresenter implements Presenter
                     $domDocument,
                     'placeholder',
                     $input->defaultValue
+                )
+            );
+        }
+
+        if (isset($input->required) && $input->required) {
+            $textArea->appendChild(
+                $this->createAttribute(
+                    $domDocument,
+                    'class',
+                    'required'
                 )
             );
         }
