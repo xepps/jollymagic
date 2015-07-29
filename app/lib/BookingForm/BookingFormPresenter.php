@@ -1,6 +1,6 @@
 <?php
 
-namespace Jollymagic\Components;
+namespace Jollymagic\BookingForm;
 
 use Jollymagic\Presenter;
 use DOMDocument;
@@ -9,12 +9,14 @@ use DOMAttr;
 class BookingFormPresenter implements Presenter
 {
     public $form;
-    private $config;
     public $formName = 'bookingForm';
+    private $config;
+    private $opts;
 
-    public function __construct($config)
+    public function __construct($config, $opts = array())
     {
         $this->config = $config;
+        $this->opts = $opts;
     }
 
     /***

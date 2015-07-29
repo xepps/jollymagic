@@ -50,7 +50,7 @@
         "backgroundImage": "demo.png",
         "title": "Booking Form",
         "components": [
-            "Jollymagic\\Components\\BookingFormPresenter"
+            "Jollymagic\\BookingForm\\BookingFormPresenter"
         ]
     },
     "404": {

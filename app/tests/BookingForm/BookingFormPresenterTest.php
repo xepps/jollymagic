@@ -1,6 +1,6 @@
 <?php
 
-namespace Jollymagic\Components;
+namespace Jollymagic\BookingForm;
 
 class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
 {

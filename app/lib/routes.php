@@ -19,8 +19,8 @@ $app->get(
 $app->post(
     '/booking',
     function (Silex\Application $app, Request $request) {
-        var_dump($request->get('phone-number'));die;
-        return $app['page-controller']->show('booking');
+        $result = $app['booking-form-handler']->handle($request);
+        return $app['page-controller']->show('booking', $result);
     }
 );
 
