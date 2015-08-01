@@ -1,0 +1,28 @@
+.contact-form {
+
+    label {
+        font-family: Helvetica Neue;
+        font-size: 1.8rem;
+        font-weight: 100;
+
+        &.required:after {
+            content: '*';
+            color: red;
+        }
+    }
+
+    input {
+        display: block;
+        margin-bottom: 20px;
+        width: 300px;
+        height: 2rem;
+        font-family: 'Helvetica Neue';
+        font-weight: 100;
+        font-size: 1.4rem;
+        padding: 8px;
+
+        &.failedValidation {
+            border:1px solid red;
+        }
+    }
+}
