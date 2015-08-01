@@ -2,6 +2,7 @@
 
 namespace Jollymagic\ContactForm;
 
+use DOMElement;
 use Jollymagic\Presenter;
 use DOMDocument;
 use DOMAttr;
@@ -71,11 +72,10 @@ class ContactFormPresenter implements Presenter
         $labelFor->value = $input->name;
         $label->appendChild($labelFor);
 
-        if (isset($input->required) && $input->required) {
-            $class = isset($this->opts->errors) && in_array($input->name, $this->opts->errors) ?
-                'required failedValidation' : 'required';
-            $label->appendChild($this->createAttribute($domDocument, 'class', $class));
-        }
+        $class = isset($input->required) && $input->required ? 'required' : '';
+        $class .= isset($this->opts->errors) && in_array($input->name, $this->opts->errors) ? ' failedValidation' : '';
+
+        $label->appendChild($this->createAttribute($domDocument, 'class', $class));
 
         return $label;
     }
@@ -89,25 +89,21 @@ class ContactFormPresenter implements Presenter
     {
         $textInput = $domDocument->createElement('input');
 
-        $textInput->appendChild($this->createAttribute($domDocument, 'type', $input->type));
-        $textInput->appendChild($this->createAttribute($domDocument, 'name', $input->name));
-        $textInput->appendChild($this->createAttribute($domDocument, 'id', $input->name));
+        $class = isset($input->required) && $input->required ? 'required' : '';
+        $class .= isset($this->opts->errors) && in_array($input->name, $this->opts->errors) ? ' failedValidation' : '';
 
-        if (isset($input->defaultValue)) {
-            $textInput->appendChild($this->createAttribute($domDocument, 'placeholder', $input->defaultValue));
-        }
-
-        if (isset($this->opts->{$input->name})) {
-            $textInput->appendChild($this->createAttribute($domDocument, 'value', $this->opts->{$input->name}));
-        }
-
-        if (isset($input->required) && $input->required) {
-            $class = isset($this->opts->errors) && in_array($input->name, $this->opts->errors) ?
-                'required failedValidation' : 'required';
-            $textInput->appendChild($this->createAttribute($domDocument, 'class', $class));
-        }
-
-        return $textInput;
+        return $this->addAttributes(
+            $domDocument,
+            $textInput,
+            array(
+                'type' => $input->type,
+                'name' => $input->name,
+                'id' => $input->name,
+                'class' => $class,
+                'placeholder' => isset($input->defaultValue) ? $input->defaultValue : '',
+                'value' => isset($this->opts->{$input->name}) ? $this->opts->{$input->name} : ''
+            )
+        );
     }
 
     /***
@@ -120,21 +116,19 @@ class ContactFormPresenter implements Presenter
         $value = isset($this->opts->{$input->name}) ? $this->opts->{$input->name} : '';
         $textArea = $domDocument->createElement('textarea', $value);
 
-        $textArea->appendChild($this->createAttribute($domDocument, 'id', $input->name));
-        $textArea->appendChild($this->createAttribute($domDocument, 'name', $input->name));
+        $class = isset($input->required) && $input->required ? 'required' : '';
+        $class .= isset($this->opts->errors) && in_array($input->name, $this->opts->errors) ? ' failedValidation' : '';
 
-        if (isset($input->defaultValue)) {
-            $textArea->appendChild($this->createAttribute($domDocument, 'placeholder', $input->defaultValue));
-        }
-
-        if (isset($input->required) && $input->required) {
-            $class = isset($this->opts->errors) && in_array($input->name, $this->opts->errors) ?
-                'required failedValidation' : 'required';
-            $textArea->appendChild($this->createAttribute($domDocument, 'class', $class));
-        }
-
-
-        return $textArea;
+        return $this->addAttributes(
+            $domDocument,
+            $textArea,
+            array(
+                'id' => $input->name,
+                'name' => $input->name,
+                'class' => $class,
+                'placeholder' => isset($input->defaultValue) ? $input->defaultValue : ''
+            )
+        );
     }
 
     /***
@@ -146,12 +140,30 @@ class ContactFormPresenter implements Presenter
     {
         $submitButton = $domDocument->createElement('input');
 
-        $submitButton->appendChild($this->createAttribute($domDocument, 'type', $input->type));
-        $submitButton->appendChild($this->createAttribute($domDocument, 'value', $input->title));
-        $submitButton->appendChild($this->createAttribute($domDocument, 'name', $this->formName));
-        $submitButton->appendChild($this->createAttribute($domDocument, 'id', $this->formName));
+        return $this->addAttributes(
+            $domDocument,
+            $submitButton,
+            array(
+                'type' => $input->type,
+                'value' => $input->title,
+                'name' => $this->formName,
+                'id' => $this->formName
+            )
+        );
+    }
 
-        return $submitButton;
+    /***
+     * @param DOMDocument $domDocument
+     * @param DOMElement $input
+     * @param array $kvs
+     * @return DOMElement
+     */
+    private function addAttributes($domDocument, $input, $kvs)
+    {
+        foreach ($kvs as $key => $value) {
+            $input->appendChild($this->createAttribute($domDocument, $key, $value));
+        }
+        return $input;
     }
 
     /***

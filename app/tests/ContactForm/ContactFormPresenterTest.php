@@ -56,8 +56,8 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                     )
                 ),
                 '<form method="post">' .
-                '<label for="test">Test Item</label>' .
-                '<input type="text" name="test" id="test" placeholder="default">' .
+                '<label for="test" class="">Test Item</label>' .
+                '<input type="text" name="test" id="test" class="" placeholder="default" value="">' .
                 '</form>'
             ),
             array(
@@ -73,8 +73,8 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                     )
                 ),
                 '<form method="post">' .
-                '<label for="test">Test Item</label>' .
-                '<input type="tel" name="test" id="test" placeholder="default">' .
+                '<label for="test" class="">Test Item</label>' .
+                '<input type="tel" name="test" id="test" class="" placeholder="default" value="">' .
                 '</form>'
             ),
             array(
@@ -90,8 +90,8 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                     )
                 ),
                 '<form method="post">' .
-                '<label for="test">Test Item</label>' .
-                '<input type="email" name="test" id="test" placeholder="default">' .
+                '<label for="test" class="">Test Item</label>' .
+                '<input type="email" name="test" id="test" class="" placeholder="default" value="">' .
                 '</form>'
             ),
             array(
@@ -106,8 +106,8 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                     )
                 ),
                 '<form method="post">' .
-                '<label for="test">Test Item</label>' .
-                '<input type="text" name="test" id="test">' .
+                '<label for="test" class="">Test Item</label>' .
+                '<input type="text" name="test" id="test" class="" placeholder="" value="">' .
                 '</form>'
             ),
             array(
@@ -124,7 +124,7 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                 ),
                 '<form method="post">' .
                 '<label for="test" class="required">Test Item</label>' .
-                '<input type="text" name="test" id="test" class="required">' .
+                '<input type="text" name="test" id="test" class="required" placeholder="" value="">' .
                 '</form>'
             ),
             array(
@@ -140,8 +140,8 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                     )
                 ),
                 '<form method="get">' .
-                '<label for="test">test text area</label>' .
-                '<textarea id="test" name="test" placeholder="default text"></textarea>' .
+                '<label for="test" class="">test text area</label>' .
+                '<textarea id="test" name="test" class="" placeholder="default text"></textarea>' .
                 '</form>'
             ),
             array(
@@ -159,7 +159,7 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                 ),
                 '<form method="get">' .
                 '<label for="test" class="required">test text area</label>' .
-                '<textarea id="test" name="test" placeholder="default text" class="required"></textarea>' .
+                '<textarea id="test" name="test" class="required" placeholder="default text"></textarea>' .
                 '</form>'
             ),
             array(
@@ -174,8 +174,8 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                     )
                 ),
                 '<form method="get">' .
-                '<label for="test">test text area</label>' .
-                '<textarea id="test" name="test"></textarea>' .
+                '<label for="test" class="">test text area</label>' .
+                '<textarea id="test" name="test" class="" placeholder=""></textarea>' .
                 '</form>'
             ),
             array(
@@ -200,7 +200,8 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                             "type" => "text",
                             "name" => "test1",
                             "title" => "Test Item1",
-                            "defaultValue" => "default1"
+                            "defaultValue" => "default1",
+                            "required" => true
                         ),
                         (object) array(
                             "type" => "text",
@@ -221,12 +222,12 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                     )
                 ),
                 '<form method="post">' .
-                '<label for="test1">Test Item1</label>' .
-                '<input type="text" name="test1" id="test1" placeholder="default1">' .
-                '<label for="test2">Test Item2</label>' .
-                '<input type="text" name="test2" id="test2" placeholder="default2">' .
-                '<label for="test">test text area</label>' .
-                '<textarea id="test" name="test" placeholder="default text"></textarea>' .
+                '<label for="test1" class="required">Test Item1</label>' .
+                '<input type="text" name="test1" id="test1" class="required" placeholder="default1" value="">' .
+                '<label for="test2" class="">Test Item2</label>' .
+                '<input type="text" name="test2" id="test2" class="" placeholder="default2" value="">' .
+                '<label for="test" class="">test text area</label>' .
+                '<textarea id="test" name="test" class="" placeholder="default text"></textarea>' .
                 '<input type="submit" value="title" name="formyForm" id="formyForm">' .
                 '</form>'
             )
@@ -257,8 +258,8 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
 
                 // expected
                 '<form method="post">' .
-                '<label for="test">Test Item</label>' .
-                '<input type="text" name="test" id="test" value="result">' .
+                '<label for="test" class="">Test Item</label>' .
+                '<input type="text" name="test" id="test" class="" placeholder="" value="result">' .
                 '</form>'
             ),
             array(
@@ -283,8 +284,8 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
 
                 // expected
                 '<form method="get">' .
-                '<label for="test">test text area</label>' .
-                '<textarea id="test" name="test" placeholder="default text">result</textarea>' .
+                '<label for="test" class="">test text area</label>' .
+                '<textarea id="test" name="test" class="" placeholder="default text">result</textarea>' .
                 '</form>'
             )
         );
@@ -318,7 +319,7 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                 // expected
                 '<form method="post">' .
                 '<label for="test" class="required failedValidation">Test Item</label>' .
-                '<input type="text" name="test" id="test" value="" class="required failedValidation">' .
+                '<input type="text" name="test" id="test" class="required failedValidation" placeholder="" value="">' .
                 '</form>'
             ),
             array(
@@ -347,8 +348,8 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                 // expected
                 '<form method="get">' .
                 '<label for="test" class="required failedValidation">test text area</label>' .
-                '<textarea id="test" name="test" placeholder="default text" ' .
-                'class="required failedValidation"></textarea>' .
+                '<textarea id="test" name="test" class="required failedValidation" placeholder="default text">' .
+                '</textarea>' .
                 '</form>'
             )
         );
