@@ -1,15 +1,15 @@
 <?php
 
-namespace Jollymagic\BookingForm;
+namespace Jollymagic\ContactForm;
 
 use Jollymagic\Presenter;
 use DOMDocument;
 use DOMAttr;
 
-class BookingFormPresenter implements Presenter
+class ContactFormPresenter implements Presenter
 {
     public $form;
-    public $formName = 'bookingForm';
+    public $formName = 'contactForm';
     private $config;
     private $opts;
 
@@ -164,7 +164,7 @@ class BookingFormPresenter implements Presenter
     private function getForm()
     {
         return $this->form ?: json_decode(
-            file_get_contents($this->config['routeDir'].$this->config['contentDir'].'bookingForm.json')
+            file_get_contents($this->config['routeDir'].$this->config['contentDir'].'contactForm.json')
         );
     }
 }

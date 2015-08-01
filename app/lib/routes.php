@@ -17,10 +17,10 @@ $app->get(
 );
 
 $app->post(
-    '/booking',
+    '/contact',
     function (Silex\Application $app, Request $request) {
-        $result = $app['booking-form-handler']->handle($request);
-        return $app['page-controller']->show('booking', $result);
+        $result = $app['contact-form-handler']->handle($request);
+        return $app['page-controller']->show('contact', $result);
     }
 );
 

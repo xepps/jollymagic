@@ -1,10 +1,10 @@
 <?php
 
-namespace Jollymagic\BookingForm;
+namespace Jollymagic\ContactForm;
 
 use Symfony\Component\HttpFoundation\Request;
 
-class BookingFormHandlerTest extends \PHPUnit_Framework_TestCase
+class ContactFormHandlerTest extends \PHPUnit_Framework_TestCase
 {
 
     public function setUpRequest($responses)
@@ -18,7 +18,7 @@ class BookingFormHandlerTest extends \PHPUnit_Framework_TestCase
     public function testHandlesRequest($form, $input, $expected)
     {
         $request = $this->setUpRequest($input);
-        $handler = new BookingFormHandler(null);
+        $handler = new ContactFormHandler(null);
         $handler->form = $form;
         $result = $handler->handle($request);
         $this->assertEquals($expected, $result);
@@ -135,7 +135,7 @@ class BookingFormHandlerTest extends \PHPUnit_Framework_TestCase
                     "test" => 'hi',
                     "testarea" => 'hello',
                     "test2" => 'sup',
-                    "bookingForm" => 'send'
+                    "contactForm" => 'send'
                 ),
                 //expected
                 (object) array(
@@ -180,7 +180,7 @@ class BookingFormHandlerTest extends \PHPUnit_Framework_TestCase
                     "test" => 'hi',
                     "testarea" => '',
                     "test2" => '',
-                    "bookingForm" => 'send'
+                    "contactForm" => 'send'
                 ),
                 //expected
                 (object) array(

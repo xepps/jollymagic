@@ -2,7 +2,7 @@
 
 namespace Jollymagic;
 
-use Jollymagic\BookingForm\BookingFormHandler;
+use Jollymagic\ContactForm\ContactFormHandler;
 use Jollymagic\Content\ContentController;
 use Jollymagic\Page\PageController;
 use Jollymagic\Image\ImageController;
@@ -46,8 +46,8 @@ class ServiceProvider implements ServiceProviderInterface
             );
         };
 
-        $app['booking-form-handler'] = function ($app) {
-            return new BookingFormHandler(
+        $app['contact-form-handler'] = function ($app) {
+            return new ContactFormHandler(
                 $app['config']
             );
         };

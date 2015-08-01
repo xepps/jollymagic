@@ -1,18 +1,18 @@
 <?php
 
-namespace Jollymagic\BookingForm;
+namespace Jollymagic\ContactForm;
 
-class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
+class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider inputProvider
      */
     public function testThatItGeneratesAllTheRequiredFormInputsFromConfig($input, $expected)
     {
-        $bookingForm = new BookingFormPresenter(null);
-        $bookingForm->form = $input;
-        $bookingForm->formName = 'formyForm';
-        $renderedHtml = $bookingForm->present();
+        $contactForm = new ContactFormPresenter(null);
+        $contactForm->form = $input;
+        $contactForm->formName = 'formyForm';
+        $renderedHtml = $contactForm->present();
         $this->assertEquals($expected, $renderedHtml);
     }
 
@@ -21,10 +21,10 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
      */
     public function testThatInputsShowCompletedValuesFromResponse($input, $response, $expected)
     {
-        $bookingForm = new BookingFormPresenter(null, $response);
-        $bookingForm->form = $input;
-        $bookingForm->formName = 'formyForm';
-        $renderedHtml = $bookingForm->present();
+        $contactForm = new ContactFormPresenter(null, $response);
+        $contactForm->form = $input;
+        $contactForm->formName = 'formyForm';
+        $renderedHtml = $contactForm->present();
         $this->assertEquals($expected, $renderedHtml);
     }
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Jollymagic\BookingForm;
+namespace Jollymagic\ContactForm;
 
 use Symfony\Component\HttpFoundation\Request;
 
-class BookingFormHandler
+class ContactFormHandler
 {
 
     public $form;
