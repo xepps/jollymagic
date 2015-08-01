@@ -1,0 +1,74 @@
+.contact-form {
+
+    button[type="submit"] {
+        display: block;
+        font-family: 'Helvetica Neue';
+        font-size: 1.4rem;
+        font-weight: 300;
+        height: 2rem;
+        width: 8rem;
+    }
+
+    input {
+        border: #ccc 1px solid;
+        display: block;
+        font-family: 'Helvetica Neue';
+        font-size: 1.4rem;
+        font-weight: 100;
+        height: 2rem;
+        margin-bottom: 20px;
+        padding: 8px;
+        width: 100%;
+
+        &.failedValidation {
+            border:1px solid red;
+        }
+
+        @include desktop() {
+            width: 360px;
+        }
+    }
+
+    label {
+        font-family: Helvetica Neue;
+        font-size: 1.8rem;
+        font-weight: 100;
+
+        &.required:after {
+            content: '*';
+            color: red;
+        }
+    }
+
+    p.success, p.error, p.intro {
+        font-size: 1.8rem;
+        font-weight: 100;
+        line-height: 2.2rem;
+        margin-top: 0;
+    }
+
+    textarea {
+        border: #ccc 1px solid;
+        display: block;
+        font-family: 'Helvetica Neue';
+        font-size: 1.4rem;
+        font-weight: 100;
+        height: 6rem;
+        margin-bottom: 20px;
+        width: 100%;
+
+        &.failedValidation {
+            border:1px solid red;
+        }
+
+        @include desktop() {
+            width: 360px;
+        }
+    }
+}
+
+.contact-form.success {
+    input, button, textarea, label {
+        display: none;
+    }
+}

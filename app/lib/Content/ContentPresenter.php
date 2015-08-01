@@ -11,10 +11,13 @@ class ContentPresenter implements Presenter
      */
     public $api;
     private $page;
+    private $config;
 
-    public function __construct($page)
+    public function __construct($page, $config = array(), $opts = array())
     {
         $this->page = $page;
+        $this->config = $config;
+        $this->opts = $opts;
     }
 
     public function present()
@@ -24,13 +27,14 @@ class ContentPresenter implements Presenter
         return (object) array(
             'content' => $this->buildPageContents($this->page, $data),
             'nav' => $this->buildNav($data),
-            'statusCode' => 404
+            'statusCode' => 200
         );
     }
 
     /***
      * @param $page
      * @param $data
+     * @throws NoContentException
      * @return Page
      */
     private function buildPageContents($page, $data)
@@ -41,9 +45,20 @@ class ContentPresenter implements Presenter
 
         $pageData = $data->{$page};
 
+        $bodyText = '';
+        if (!empty($pageData->bodyText)) {
+            $bodyText = $this->convertBodyToHtml($pageData->bodyText);
+        }
+
+        $pageComponents = array();
+        if (!empty($pageData->components)) {
+            $pageComponents = $this->renderComponents($pageData->components);
+        }
+
         return new Page(
             $pageData->title,
-            $this->convertBodyToHtml($pageData->bodyText),
+            $bodyText,
+            $pageComponents,
             $pageData->backgroundImage
         );
     }
@@ -73,6 +88,10 @@ class ContentPresenter implements Presenter
      */
     private function convertBodyToHtml($bodyText)
     {
+        if (empty($bodyText)) {
+            return '';
+        }
+
         $pd = new \Parsedown();
         return array_reduce(
             $bodyText,
@@ -80,6 +99,25 @@ class ContentPresenter implements Presenter
                 return $carry . $pd->text($paragraph);
             },
             ''
+        );
+    }
+
+    /***
+     * @param String[]
+     * @return Array
+     */
+    private function renderComponents($components)
+    {
+        if (empty($components)) {
+            return array();
+        }
+
+        return array_map(
+            function ($componentName) {
+                $component = new $componentName($this->config, $this->opts);
+                return $component->present();
+            },
+            $components
         );
     }
 }

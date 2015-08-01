@@ -1,4 +1,7 @@
 <?php
+
+use Symfony\Component\HttpFoundation\Request;
+
 $app->get(
     '/status',
     function () {
@@ -10,6 +13,14 @@ $app->get(
     '/{page}',
     function (Silex\Application $app, $page) {
         return $app['page-controller']->show($page);
+    }
+);
+
+$app->post(
+    '/contact',
+    function (Silex\Application $app, Request $request) {
+        $result = $app['contact-form-handler']->handle($request);
+        return $app['page-controller']->show('contact', $result);
     }
 );
 

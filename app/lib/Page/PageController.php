@@ -15,9 +15,9 @@ class PageController
         $this->config = $config;
     }
 
-    public function show($page = 'index')
+    public function show($page = 'index', $opts = array())
     {
-        $model = $this->getModel($page);
+        $model = $this->getModel($page, $opts);
 
         return $this->app['view-factory'](
             'index',
@@ -30,10 +30,10 @@ class PageController
         );
     }
 
-    private function getModel($page)
+    private function getModel($page, $opts)
     {
         try {
-            return $this->app['content-controller']->show($page);
+            return $this->app['content-controller']->show($page, $opts);
         } catch (NoContentException $e) {
             return $this->app['content-controller']->show404Page();
         }
