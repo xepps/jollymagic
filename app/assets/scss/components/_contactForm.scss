@@ -66,3 +66,9 @@
         }
     }
 }
+
+.contact-form.success {
+    input, button, textarea, label {
+        display: none;
+    }
+}
