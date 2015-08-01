@@ -1,5 +1,12 @@
 .contact-form {
 
+    p.success, p.error, p.intro {
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+        font-weight: 100;
+        margin-top: 0;
+    }
+
     label {
         font-family: Helvetica Neue;
         font-size: 1.8rem;
