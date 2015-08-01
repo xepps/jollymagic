@@ -28,6 +28,18 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $renderedHtml);
     }
 
+    /**
+     * @dataProvider failureInputProvider
+     */
+    public function testThatInputsThatFailRequirementAddClassToInput($input, $response, $expected)
+    {
+        $contactForm = new ContactFormPresenter(null, $response);
+        $contactForm->form = $input;
+        $contactForm->formName = 'formyForm';
+        $renderedHtml = $contactForm->present();
+        $this->assertEquals($expected, $renderedHtml);
+    }
+
     public function inputProvider()
     {
         return array(
@@ -273,6 +285,70 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                 '<form method="get">' .
                 '<label for="test">test text area</label>' .
                 '<textarea id="test" name="test" placeholder="default text">result</textarea>' .
+                '</form>'
+            )
+        );
+    }
+
+    public function failureInputProvider()
+    {
+        return array(
+            array(
+                // input
+                (object) array(
+                    'method' => 'post',
+                    'inputs' => array(
+                        (object) array(
+                            "type" => "text",
+                            "name" => "test",
+                            "title" => "Test Item",
+                            "required" => true
+                        )
+                    )
+                ),
+                // response
+                (object) array(
+                    'success' => false,
+                    'errors' => [
+                        'test'
+                    ],
+                    'test' => ''
+                ),
+
+                // expected
+                '<form method="post">' .
+                '<label for="test" class="required failedValidation">Test Item</label>' .
+                '<input type="text" name="test" id="test" value="" class="required failedValidation">' .
+                '</form>'
+            ),
+            array(
+                // input
+                (object) array(
+                    'method' => 'get',
+                    'inputs' => array(
+                        (object) array(
+                            'type' => 'textarea',
+                            'name' => 'test',
+                            'title' => 'test text area',
+                            'defaultValue' => 'default text',
+                            'required' => true
+                        )
+                    )
+                ),
+                // response
+                (object) array(
+                    'success' => false,
+                    'errors' => [
+                        'test'
+                    ],
+                    'test' => ''
+                ),
+
+                // expected
+                '<form method="get">' .
+                '<label for="test" class="required failedValidation">test text area</label>' .
+                '<textarea id="test" name="test" placeholder="default text" ' .
+                'class="required failedValidation"></textarea>' .
                 '</form>'
             )
         );

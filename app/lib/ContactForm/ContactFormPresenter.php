@@ -72,7 +72,9 @@ class ContactFormPresenter implements Presenter
         $label->appendChild($labelFor);
 
         if (isset($input->required) && $input->required) {
-            $label->appendChild($this->createAttribute($domDocument, 'class', 'required'));
+            $class = isset($this->opts->errors) && in_array($input->name, $this->opts->errors) ?
+                'required failedValidation' : 'required';
+            $label->appendChild($this->createAttribute($domDocument, 'class', $class));
         }
 
         return $label;
@@ -100,7 +102,9 @@ class ContactFormPresenter implements Presenter
         }
 
         if (isset($input->required) && $input->required) {
-            $textInput->appendChild($this->createAttribute($domDocument, 'class', 'required'));
+            $class = isset($this->opts->errors) && in_array($input->name, $this->opts->errors) ?
+                'required failedValidation' : 'required';
+            $textInput->appendChild($this->createAttribute($domDocument, 'class', $class));
         }
 
         return $textInput;
@@ -124,7 +128,9 @@ class ContactFormPresenter implements Presenter
         }
 
         if (isset($input->required) && $input->required) {
-            $textArea->appendChild($this->createAttribute($domDocument, 'class', 'required'));
+            $class = isset($this->opts->errors) && in_array($input->name, $this->opts->errors) ?
+                'required failedValidation' : 'required';
+            $textArea->appendChild($this->createAttribute($domDocument, 'class', $class));
         }
 
 

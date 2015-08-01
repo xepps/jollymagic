@@ -22,8 +22,7 @@
         {
             "type": "text",
             "name": "date-of-event",
-            "title": "Date of Event",
-            "required": true
+            "title": "Date of Event"
         },
         {
             "type": "text",
