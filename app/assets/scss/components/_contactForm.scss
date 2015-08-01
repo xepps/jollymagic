@@ -14,15 +14,48 @@
     input {
         display: block;
         margin-bottom: 20px;
-        width: 300px;
+        width: 100%;
         height: 2rem;
         font-family: 'Helvetica Neue';
         font-weight: 100;
         font-size: 1.4rem;
         padding: 8px;
+        border: #ccc 1px solid;
 
         &.failedValidation {
             border:1px solid red;
         }
+
+        @include desktop() {
+            width: 360px;
+        }
+    }
+
+    textarea {
+        display: block;
+        margin-bottom: 20px;
+        width: 100%;
+        height: 6rem;
+        font-family: 'Helvetica Neue';
+        font-weight: 100;
+        font-size: 1.4rem;
+        border: #ccc 1px solid;
+
+        &.failedValidation {
+            border:1px solid red;
+        }
+
+        @include desktop() {
+            width: 360px;
+        }
+    }
+
+    button[type="submit"] {
+        display: block;
+        width: 8rem;
+        height: 2rem;
+        font-family: 'Helvetica Neue';
+        font-weight: 300;
+        font-size: 1.4rem;
     }
 }

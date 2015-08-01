@@ -5,50 +5,58 @@
             "type": "text",
             "name": "name",
             "title": "Name",
+            "placeholder": "Who will I be talking to?",
             "required": true
         },
         {
             "type": "tel",
             "name": "phone-number",
             "title": "Phone Number",
+            "placeholder": "Including any extensions",
             "required": true
         },
         {
             "type": "email",
             "name": "email-address",
             "title": "Email Address",
+            "placeholder": "A valid email address",
             "required": true
         },
         {
             "type": "text",
             "name": "date-of-event",
-            "title": "Date of Event"
-        },
-        {
-            "type": "text",
-            "name": "type-of-event",
-            "title": "Type of Event"
+            "title": "Date of Event",
+            "placeholder": "When would you need me?"
         },
         {
             "type": "text",
             "name": "venue",
-            "title": "Venue / Location"
+            "title": "Venue / Location",
+            "placeholder": "Where would you need me?"
+        },
+        {
+            "type": "text",
+            "name": "type-of-event",
+            "title": "Type of Event",
+            "placeholder": "What is your event?"
         },
         {
             "type": "text",
             "name": "type-of-entertainment",
-            "title": "Type of Entertainment"
+            "title": "Type of Entertainment",
+            "placeholder": "What shall I do?"
         },
         {
             "type": "text",
             "name": "number-of-guests",
-            "title": "Number of Guests"
+            "title": "Number of Guests",
+            "placeholder": "Roughly how many guests are there?"
         },
         {
             "type": "textarea",
             "name": "any-other-info",
             "title": "Any other info",
-            "defaultValue": "Please detail here..."
+            "placeholder": "Is there anything else you think is relevant?"
         },
         {
             "type": "submit",
