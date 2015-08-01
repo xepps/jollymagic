@@ -1,4 +1,7 @@
 {
+    "introParagraph": "Please fill out the form below with as much information as possible.",
+    "successParagraph": "Thanks for submitting your information. Al Jolly will be in touch shortly.",
+    "errorParagraph": "Oops! Please make sure the name, phone number and email address boxes are completed.",
     "method": "post",
     "inputs": [
         {

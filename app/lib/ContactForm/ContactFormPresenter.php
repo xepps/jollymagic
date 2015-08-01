@@ -14,6 +14,10 @@ class ContactFormPresenter implements Presenter
     private $config;
     private $opts;
 
+    /***
+     * @param $config
+     * @param array|Object $opts
+     */
     public function __construct($config, $opts = array())
     {
         $this->config = $config;
@@ -31,34 +35,65 @@ class ContactFormPresenter implements Presenter
 
     private function createForm($form)
     {
-        $dd = new DOMDocument();
-        $formTag = $dd->createElement('form');
-        $formTag->appendChild($this->createAttribute($dd, 'class', 'contact-form'));
-        $formTag->appendChild($this->createAttribute($dd, 'method', $form->method));
+        $domDocument = new DOMDocument();
+        $formTag = $domDocument->createElement('form');
+
+        $class = 'contact-form';
+        $class .= isset($this->opts->success) && $this->opts->success ? ' success' : '';
+
+        $this->addAttributes(
+            $domDocument,
+            $formTag,
+            array(
+                'class' => $class,
+                'method' => $form->method
+            )
+        );
+
+        if (isset($form->introParagraph) && !isset($this->opts->success)) {
+            $formTag->appendChild($this->createIntroParagraph($domDocument, $form->introParagraph, 'intro'));
+        } elseif (isset($form->errorParagraph) && !$this->opts->success) {
+            $formTag->appendChild($this->createIntroParagraph($domDocument, $form->errorParagraph, 'error'));
+        } elseif (isset($form->successParagraph) && $this->opts->success) {
+            $formTag->appendChild($this->createIntroParagraph($domDocument, $form->successParagraph, 'success'));
+        }
 
         foreach ($form->inputs as $input) {
             switch ($input->type) {
                 case 'text':
                 case 'tel':
                 case 'email':
-                    $formTag->appendChild($this->createLabel($dd, $input));
-                    $formTag->appendChild($this->createTextInput($dd, $input));
+                    $formTag->appendChild($this->createLabel($domDocument, $input));
+                    $formTag->appendChild($this->createTextInput($domDocument, $input));
                     break;
                 case 'textarea':
-                    $formTag->appendChild($this->createLabel($dd, $input));
-                    $formTag->appendChild($this->createTextArea($dd, $input));
+                    $formTag->appendChild($this->createLabel($domDocument, $input));
+                    $formTag->appendChild($this->createTextArea($domDocument, $input));
                     break;
                 case 'submit':
-                    $formTag->appendChild($this->createSubmitButton($dd, $input));
+                    $formTag->appendChild($this->createSubmitButton($domDocument, $input));
                     break;
                 case 'default':
                     break;
             }
         }
 
-        $dd->appendChild($formTag);
+        $domDocument->appendChild($formTag);
 
-        return trim($dd->saveHTML());
+        return trim($domDocument->saveHTML());
+    }
+
+    /***
+     * @param DOMDocument $domDocument
+     * @param $string
+     * @param $class
+     * @return DOMElement
+     */
+    private function createIntroParagraph($domDocument, $string, $class)
+    {
+        $paragraph = $domDocument->createElement('p', $string);
+        $paragraph->appendChild($this->createAttribute($domDocument, 'class', $class));
+        return $paragraph;
     }
 
     /***

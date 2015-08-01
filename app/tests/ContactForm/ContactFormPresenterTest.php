@@ -40,6 +40,85 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $renderedHtml);
     }
 
+    public function testThatIfFormIsSuccessFormHasSuccessClass()
+    {
+        $contactForm = new ContactFormPresenter(null,
+            (object) array(
+                'success' => true,
+                'errors' => []
+            )
+        );
+        $contactForm->form = (object) array(
+            'method' => 'post',
+            'inputs' => array()
+        );
+        $contactForm->formName = 'formyForm';
+        $this->assertEquals('<form class="contact-form success" method="post"></form>', $contactForm->present());
+    }
+
+    public function testThatIfTheFormHasNotBeenFilledInIntroParagraphIsShown()
+    {
+        $contactForm = new ContactFormPresenter(null, array());
+        $contactForm->form = (object) array(
+            'method' => 'post',
+            'introParagraph' => 'intro',
+            'successParagraph' => 'success',
+            'errorParagraph' => 'error',
+            'inputs' => array()
+        );
+        $contactForm->formName = 'formyForm';
+        $this->assertEquals(
+            '<form class="contact-form" method="post"><p class="intro">intro</p></form>',
+            $contactForm->present()
+        );
+    }
+
+    public function testThatIfTheFormHasBeenFilledInIncorrectlyErrorParagraphIsShown()
+    {
+        $contactForm = new ContactFormPresenter(
+            null,
+            (object) array(
+                'success' => false,
+                'errors' => []
+            )
+        );
+        $contactForm->form = (object) array(
+            'method' => 'post',
+            'introParagraph' => 'intro',
+            'successParagraph' => 'success',
+            'errorParagraph' => 'error',
+            'inputs' => array()
+        );
+        $contactForm->formName = 'formyForm';
+        $this->assertEquals(
+            '<form class="contact-form" method="post"><p class="error">error</p></form>',
+            $contactForm->present()
+        );
+    }
+
+    public function testThatIfTheFormHasBeenFilledInCorrectlySuccessParagraphIsShown()
+    {
+        $contactForm = new ContactFormPresenter(
+            null,
+            (object) array(
+                'success' => true,
+                'errors' => []
+            )
+        );
+        $contactForm->form = (object) array(
+            'method' => 'post',
+            'introParagraph' => 'intro',
+            'successParagraph' => 'success',
+            'errorParagraph' => 'error',
+            'inputs' => array()
+        );
+        $contactForm->formName = 'formyForm';
+        $this->assertEquals(
+            '<form class="contact-form success" method="post"><p class="success">success</p></form>',
+            $contactForm->present()
+        );
+    }
+
     public function inputProvider()
     {
         return array(
