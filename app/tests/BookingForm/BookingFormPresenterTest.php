@@ -53,6 +53,40 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
                     'method' => 'post',
                     'inputs' => array(
                         (object) array(
+                            "type" => "tel",
+                            "name" => "test",
+                            "title" => "Test Item",
+                            "defaultValue" => "default"
+                        )
+                    )
+                ),
+                '<form method="post">' .
+                '<label for="test">Test Item</label>' .
+                '<input type="tel" name="test" id="test" placeholder="default">' .
+                '</form>'
+            ),
+            array(
+                (object) array(
+                    'method' => 'post',
+                    'inputs' => array(
+                        (object) array(
+                            "type" => "email",
+                            "name" => "test",
+                            "title" => "Test Item",
+                            "defaultValue" => "default"
+                        )
+                    )
+                ),
+                '<form method="post">' .
+                '<label for="test">Test Item</label>' .
+                '<input type="email" name="test" id="test" placeholder="default">' .
+                '</form>'
+            ),
+            array(
+                (object) array(
+                    'method' => 'post',
+                    'inputs' => array(
+                        (object) array(
                             "type" => "text",
                             "name" => "test",
                             "title" => "Test Item",
@@ -213,6 +247,32 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
                 '<form method="post">' .
                 '<label for="test">Test Item</label>' .
                 '<input type="text" name="test" id="test" value="result">' .
+                '</form>'
+            ),
+            array(
+                // input
+                (object) array(
+                    'method' => 'get',
+                    'inputs' => array(
+                        (object) array(
+                            'type' => 'textarea',
+                            'name' => 'test',
+                            'title' => 'test text area',
+                            'defaultValue' => 'default text'
+                        )
+                    )
+                ),
+                // response
+                (object) array(
+                    'success' => false,
+                    'errors' => [],
+                    'test' => 'result'
+                ),
+
+                // expected
+                '<form method="get">' .
+                '<label for="test">test text area</label>' .
+                '<textarea id="test" name="test" placeholder="default text">result</textarea>' .
                 '</form>'
             )
         );

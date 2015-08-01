@@ -8,13 +8,13 @@
             "required": true
         },
         {
-            "type": "text",
+            "type": "tel",
             "name": "phone-number",
             "title": "Phone Number",
             "required": true
         },
         {
-            "type": "text",
+            "type": "email",
             "name": "email-address",
             "title": "Email Address",
             "required": true
