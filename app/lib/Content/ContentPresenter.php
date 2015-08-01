@@ -34,6 +34,7 @@ class ContentPresenter implements Presenter
     /***
      * @param $page
      * @param $data
+     * @throws NoContentException
      * @return Page
      */
     private function buildPageContents($page, $data)
