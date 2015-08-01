@@ -33,6 +33,7 @@ class ContactFormPresenter implements Presenter
     {
         $dd = new DOMDocument();
         $formTag = $dd->createElement('form');
+        $formTag->appendChild($this->createAttribute($dd, 'class', 'contact-form'));
         $formTag->appendChild($this->createAttribute($dd, 'method', $form->method));
 
         foreach ($form->inputs as $input) {
