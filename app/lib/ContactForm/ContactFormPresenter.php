@@ -101,7 +101,7 @@ class ContactFormPresenter implements Presenter
                 'name' => $input->name,
                 'id' => $input->name,
                 'class' => $class,
-                'placeholder' => isset($input->defaultValue) ? $input->defaultValue : '',
+                'placeholder' => isset($input->placeholder) ? $input->placeholder : '',
                 'value' => isset($this->opts->{$input->name}) ? $this->opts->{$input->name} : ''
             )
         );
@@ -127,7 +127,7 @@ class ContactFormPresenter implements Presenter
                 'id' => $input->name,
                 'name' => $input->name,
                 'class' => $class,
-                'placeholder' => isset($input->defaultValue) ? $input->defaultValue : ''
+                'placeholder' => isset($input->placeholder) ? $input->placeholder : ''
             )
         );
     }

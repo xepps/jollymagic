@@ -51,7 +51,7 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                             "type" => "text",
                             "name" => "test",
                             "title" => "Test Item",
-                            "defaultValue" => "default"
+                            "placeholder" => "default"
                         )
                     )
                 ),
@@ -68,7 +68,7 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                             "type" => "tel",
                             "name" => "test",
                             "title" => "Test Item",
-                            "defaultValue" => "default"
+                            "placeholder" => "default"
                         )
                     )
                 ),
@@ -85,7 +85,7 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                             "type" => "email",
                             "name" => "test",
                             "title" => "Test Item",
-                            "defaultValue" => "default"
+                            "placeholder" => "default"
                         )
                     )
                 ),
@@ -135,7 +135,7 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                             'type' => 'textarea',
                             'name' => 'test',
                             'title' => 'test text area',
-                            'defaultValue' => 'default text'
+                            'placeholder' => 'default text'
                         )
                     )
                 ),
@@ -152,7 +152,7 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                             'type' => 'textarea',
                             'name' => 'test',
                             'title' => 'test text area',
-                            'defaultValue' => 'default text',
+                            'placeholder' => 'default text',
                             'required' => true
                         )
                     )
@@ -200,20 +200,20 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                             "type" => "text",
                             "name" => "test1",
                             "title" => "Test Item1",
-                            "defaultValue" => "default1",
+                            "placeholder" => "default1",
                             "required" => true
                         ),
                         (object) array(
                             "type" => "text",
                             "name" => "test2",
                             "title" => "Test Item2",
-                            "defaultValue" => "default2"
+                            "placeholder" => "default2"
                         ),
                         (object) array(
                             'type' => 'textarea',
                             'name' => 'test',
                             'title' => 'test text area',
-                            'defaultValue' => 'default text'
+                            'placeholder' => 'default text'
                         ),
                         (object) array(
                             'type' => 'submit',
@@ -271,7 +271,7 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                             'type' => 'textarea',
                             'name' => 'test',
                             'title' => 'test text area',
-                            'defaultValue' => 'default text'
+                            'placeholder' => 'default text'
                         )
                     )
                 ),
@@ -331,7 +331,7 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                             'type' => 'textarea',
                             'name' => 'test',
                             'title' => 'test text area',
-                            'defaultValue' => 'default text',
+                            'placeholder' => 'default text',
                             'required' => true
                         )
                     )
