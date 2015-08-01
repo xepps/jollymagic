@@ -16,6 +16,18 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $renderedHtml);
     }
 
+    /**
+     * @dataProvider responseInputProvider
+     */
+    public function testThatInputsShowCompletedValuesFromResponse($input, $response, $expected)
+    {
+        $bookingForm = new BookingFormPresenter(null, $response);
+        $bookingForm->form = $input;
+        $bookingForm->formName = 'formyForm';
+        $renderedHtml = $bookingForm->present();
+        $this->assertEquals($expected, $renderedHtml);
+    }
+
     public function inputProvider()
     {
         return array(
@@ -170,6 +182,37 @@ class BookingFormPresenterTest extends \PHPUnit_Framework_TestCase
                 '<label for="test">test text area</label>' .
                 '<textarea id="test" name="test" placeholder="default text"></textarea>' .
                 '<input type="submit" value="title" name="formyForm" id="formyForm">' .
+                '</form>'
+            )
+        );
+    }
+
+    public function responseInputProvider()
+    {
+        return array(
+            array(
+                // input
+                (object) array(
+                    'method' => 'post',
+                    'inputs' => array(
+                        (object) array(
+                            "type" => "text",
+                            "name" => "test",
+                            "title" => "Test Item",
+                        )
+                    )
+                ),
+                // response
+                (object) array(
+                    'success' => false,
+                    'errors' => [],
+                    'test' => 'result'
+                ),
+
+                // expected
+                '<form method="post">' .
+                '<label for="test">Test Item</label>' .
+                '<input type="text" name="test" id="test" value="result">' .
                 '</form>'
             )
         );
