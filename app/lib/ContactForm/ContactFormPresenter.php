@@ -36,6 +36,24 @@ class ContactFormPresenter implements Presenter
     private function createForm($form)
     {
         $domDocument = new DOMDocument();
+
+        $formTag = $this->createFormTag($domDocument, $form);
+
+        $this->createIntroParagraph($domDocument, $formTag, $form);
+        $this->createFormInputs($domDocument, $formTag, $form);
+
+        $domDocument->appendChild($formTag);
+
+        return trim($domDocument->saveHTML());
+    }
+
+    /**
+     * @param DomDocument $domDocument
+     * @param $form
+     * @return DomElement mixed
+     */
+    private function createFormTag($domDocument, $form)
+    {
         $formTag = $domDocument->createElement('form');
 
         $class = 'contact-form';
@@ -49,15 +67,32 @@ class ContactFormPresenter implements Presenter
                 'method' => $form->method
             )
         );
+        return $formTag;
+    }
 
+    /**
+     * @param DomDocument $domDocument
+     * @param DomElement $formTag
+     * @param $form
+     */
+    private function createIntroParagraph($domDocument, $formTag, $form)
+    {
         if (isset($form->introParagraph) && !isset($this->opts->success)) {
-            $formTag->appendChild($this->createIntroParagraph($domDocument, $form->introParagraph, 'intro'));
+            $formTag->appendChild($this->createParagraph($domDocument, $form->introParagraph, 'intro'));
         } elseif (isset($form->errorParagraph) && !$this->opts->success) {
-            $formTag->appendChild($this->createIntroParagraph($domDocument, $form->errorParagraph, 'error'));
+            $formTag->appendChild($this->createParagraph($domDocument, $form->errorParagraph, 'error'));
         } elseif (isset($form->successParagraph) && $this->opts->success) {
-            $formTag->appendChild($this->createIntroParagraph($domDocument, $form->successParagraph, 'success'));
+            $formTag->appendChild($this->createParagraph($domDocument, $form->successParagraph, 'success'));
         }
+    }
 
+    /**
+     * @param DomDocument $domDocument
+     * @param DomElement $formTag
+     * @param $form
+     */
+    private function createFormInputs($domDocument, $formTag, $form)
+    {
         foreach ($form->inputs as $input) {
             switch ($input->type) {
                 case 'text':
@@ -77,10 +112,6 @@ class ContactFormPresenter implements Presenter
                     break;
             }
         }
-
-        $domDocument->appendChild($formTag);
-
-        return trim($domDocument->saveHTML());
     }
 
     /***
@@ -89,7 +120,7 @@ class ContactFormPresenter implements Presenter
      * @param $class
      * @return DOMElement
      */
-    private function createIntroParagraph($domDocument, $string, $class)
+    private function createParagraph($domDocument, $string, $class)
     {
         $paragraph = $domDocument->createElement('p', $string);
         $paragraph->appendChild($this->createAttribute($domDocument, 'class', $class));
@@ -214,6 +245,9 @@ class ContactFormPresenter implements Presenter
         return $attr;
     }
 
+    /***
+     * @return mixed
+     */
     private function getForm()
     {
         return $this->form ?: json_decode(
