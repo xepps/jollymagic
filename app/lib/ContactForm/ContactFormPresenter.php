@@ -139,14 +139,13 @@ class ContactFormPresenter implements Presenter
      */
     private function createSubmitButton($domDocument, $input)
     {
-        $submitButton = $domDocument->createElement('input');
+        $submitButton = $domDocument->createElement('button', $input->title);
 
         return $this->addAttributes(
             $domDocument,
             $submitButton,
             array(
                 'type' => $input->type,
-                'value' => $input->title,
                 'name' => $this->formName,
                 'id' => $this->formName
             )

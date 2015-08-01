@@ -189,7 +189,7 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                     )
                 ),
                 '<form class="contact-form" method="post">' .
-                '<input type="submit" value="title" name="formyForm" id="formyForm">' .
+                '<button type="submit" name="formyForm" id="formyForm">title</button>' .
                 '</form>'
             ),
             array(
@@ -228,7 +228,7 @@ class ContactFormPresenterTest extends \PHPUnit_Framework_TestCase
                 '<input type="text" name="test2" id="test2" class="" placeholder="default2" value="">' .
                 '<label for="test" class="">test text area</label>' .
                 '<textarea id="test" name="test" class="" placeholder="default text"></textarea>' .
-                '<input type="submit" value="title" name="formyForm" id="formyForm">' .
+                '<button type="submit" name="formyForm" id="formyForm">title</button>' .
                 '</form>'
             )
         );

@@ -32,7 +32,7 @@ class ContactFormHandler
             file_get_contents(
                 $this->config['routeDir'].
                 $this->config['contentDir'].
-                'bookingForm.json'
+                'contactForm.json'
             )
         );
     }
