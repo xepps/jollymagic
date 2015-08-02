@@ -94,24 +94,27 @@ class ContactFormPresenter implements Presenter
     private function createFormInputs($domDocument, $formTag, $form)
     {
         foreach ($form->inputs as $input) {
+            $field = $this->createField($domDocument);
+            $formTag->appendChild($field);
             switch ($input->type) {
                 case 'text':
                 case 'tel':
                 case 'email':
-                    $formTag->appendChild($this->createLabel($domDocument, $input));
-                    $formTag->appendChild($this->createTextInput($domDocument, $input));
+                    $field->appendChild($this->createLabel($domDocument, $input));
+                    $field->appendChild($this->createTextInput($domDocument, $input));
                     break;
                 case 'textarea':
-                    $formTag->appendChild($this->createLabel($domDocument, $input));
-                    $formTag->appendChild($this->createTextArea($domDocument, $input));
+                    $field->appendChild($this->createLabel($domDocument, $input));
+                    $field->appendChild($this->createTextArea($domDocument, $input));
                     break;
                 case 'submit':
-                    $formTag->appendChild($this->createSubmitButton($domDocument, $input));
+                    $field->appendChild($this->createSubmitButton($domDocument, $input));
                     break;
                 case 'default':
                     break;
             }
         }
+
     }
 
     /***
@@ -125,6 +128,17 @@ class ContactFormPresenter implements Presenter
         $paragraph = $domDocument->createElement('p', $string);
         $paragraph->appendChild($this->createAttribute($domDocument, 'class', $class));
         return $paragraph;
+    }
+
+    /***
+     * @param DomDocument $domDocument
+     * @return DomElement
+     */
+    private function createField($domDocument)
+    {
+        $field = $domDocument->createElement('div');
+        $field->appendChild($this->createAttribute($domDocument, 'class', 'field'));
+        return $field;
     }
 
     /***
