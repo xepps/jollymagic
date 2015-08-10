@@ -23,9 +23,11 @@ class ContentPresenter implements Presenter
     public function present()
     {
         $data = $this->api->fetchContent();
+        $footer = $this->api->fetchFooter();
 
         return (object) array(
             'content' => $this->buildPageContents($this->page, $data),
+            'footer' => $footer,
             'nav' => $this->buildNav($data),
             'statusCode' => 200
         );

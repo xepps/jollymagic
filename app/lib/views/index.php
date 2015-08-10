@@ -38,6 +38,22 @@
         <? endforeach; ?>
     </main>
 
+    <footer>
+        <p><span>Email Me: </span><a href="mailto:<?= $footer->email ?>"><?= $footer->email?></a></p>
+        <p><span>Write To Me: </span><?= implode(" ● ", $footer->address) ?></p>
+        <p><span>Call Me: </span>
+            <?= trim(
+                array_reduce(
+                    $footer->telephone,
+                    function($carry, $number){
+                        return $carry . '<a href="tel:' . str_replace(' ', '', $number) . '">' . $number . '</a> ● ';
+                    },
+                    ''
+                ),
+                " ● "
+            ) ?></p>
+    </footer>
+
     <script src="/static/js/require.js"></script>
     <script src="/static/js/controller.js"></script>
 

@@ -19,4 +19,13 @@ class FileBasedContentApi implements ContentApi
             )
         );
     }
+
+    public function fetchFooter()
+    {
+        return json_decode(
+            file_get_contents(
+                $this->contentDir.'footer.json'
+            )
+        );
+    }
 }

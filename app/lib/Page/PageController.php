@@ -24,6 +24,7 @@ class PageController
             array(
                 "baseUrl" => $this->app['baseUrl'],
                 "content" => $model->content,
+                "footer" => $model->footer,
                 "nav" => $model->nav
             ),
             $model->statusCode
