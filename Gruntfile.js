@@ -6,6 +6,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -58,6 +59,28 @@ module.exports = function(grunt) {
                 cwd: "app/assets/content/",
                 src: "*",
                 dest: "static/content/"
+            },
+            release: {
+                expand: true,
+                src: ["app/lib/**", "static/**", "vendor/**", ".htaccess", "package.json", "composer.json"],
+                dest: "release/"
+            }
+        },
+        clean: {
+            staticContent: {
+                src: ["static/content"]
+            },
+            staticCss: {
+                src: ["static/css"]
+            },
+            staticImages: {
+                src: ["static/images"]
+            },
+            staticJs: {
+                src: ["static/js"]
+            },
+            releaseFiles: {
+                src: ["release"]
             }
         },
         jshint: {
@@ -117,7 +140,7 @@ module.exports = function(grunt) {
                     livereload: true
                 },
                 files: ['app/assets/scss/**/*.scss'],
-                tasks: ['compass:dev', 'copy:images']
+                tasks: ['clean:staticCss', 'clean:staticImages', 'compass:dev', 'copy:images']
             },
             js: {
                 files: ['app/assets/js/modules/**/*.js', 'app/assets/js/modules-test/*.js'],
@@ -125,15 +148,15 @@ module.exports = function(grunt) {
             },
             jsVendor: {
                 files: ['app/assets/js/vendors/*.js'],
-                tasks: ['copy:jsVendor']
+                tasks: ['clean:staticJs', 'copy:jsVendor']
             },
             images: {
                 files: ['app/assets/images/*'],
-                tasks: ['copy:images']
+                tasks: ['clean:staticImages', 'copy:images']
             },
             content: {
                 files: ['app/assets/content/*'],
-                tasks: ['copy:content']
+                tasks: ['clean:staticContent', 'copy:content']
             }
         }
     });
@@ -208,5 +231,12 @@ module.exports = function(grunt) {
         ]
     );
 
+    grunt.registerTask(
+        'release',
+        [
+            'clean:releaseFiles',
+            'copy:release'
+        ]
+    );
 
 };
