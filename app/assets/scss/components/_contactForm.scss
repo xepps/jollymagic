@@ -67,6 +67,13 @@
             border:1px solid red;
         }
     }
+
+    // clearfix
+    &:after {
+        clear: both;
+        content: "";
+        display: table;
+    }
 }
 
 .contact-form.success {
