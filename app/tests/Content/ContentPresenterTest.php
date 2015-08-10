@@ -35,17 +35,31 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
                 )
             ),
             "booking" => (object) array(
-                    "url" => "/booking",
-                    "navTitle" => "booking",
-                    "backgroundImage" => "image.jpeg",
-                    "title" => "Book me",
-                    "bodyText" => array(
-                        "Paragraph one £&£",
-                    ),
-                    "components" => array(
-                        "Jollymagic\\Components\\MockComponentPresenter"
-                    )
+                "url" => "/booking",
+                "navTitle" => "booking",
+                "backgroundImage" => "image.jpeg",
+                "title" => "Book me",
+                "bodyText" => array(
+                    "Paragraph one £&£",
+                ),
+                "components" => array(
+                    "Jollymagic\\Components\\MockComponentPresenter"
                 )
+            )
+        );
+        $this->mockContentApi->footer = (object) array(
+            "email" => "info@jollymagic.com",
+            "address" => [
+                "Jollymagic",
+                "15 Osbourne Road",
+                "Walton-Le-Dale",
+                "Preston",
+                "PR5 4GL"
+            ],
+            "telephone" => [
+                "01772 336167",
+                "07971 043376"
+            ]
         );
     }
 
@@ -60,6 +74,8 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->mockContentApi->content->home->title, $page->content->title);
         $this->assertEquals($expectedBodyText, $page->content->body);
         $this->assertEquals($this->mockContentApi->content->home->backgroundImage, $page->content->backgroundImage);
+
+        $this->assertEquals($this->mockContentApi->footer, $page->footer);
     }
 
     public function testThatTheNavIsReturnedAsPartOfAPage()
