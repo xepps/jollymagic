@@ -5,10 +5,10 @@ footer {
     font-size: 1.1rem;
     font-weight: 200;
     margin: 72px auto auto;
-    padding: 10px;
+    padding: 10px 0;
     position: relative;
     text-align: center;
-    width: 80%;
+    width: 100%;
 
     a {
         color: black;
@@ -26,5 +26,9 @@ footer {
         @include desktop() {
             display: inline;
         }
+    }
+
+    @include desktop() {
+        width: 80%;
     }
 }

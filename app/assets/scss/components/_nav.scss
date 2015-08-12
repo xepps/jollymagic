@@ -1,3 +1,13 @@
+@keyframes navopening {
+    from { margin-top: -101%}
+    to   { margin-top: 0;}
+}
+
+@keyframes navclosing {
+    from { margin-top: 0;}
+    to   { margin-top: -101%;}
+}
+
 nav {
     display: block;
     position: relative;
@@ -6,6 +16,7 @@ nav {
     border-bottom: 5px solid red;
     background-color:white;
     width: 100%;
+    margin-top: -101%;
 
     ul {
         margin-left: 0;
@@ -38,11 +49,21 @@ nav {
         }
     }
 
-    &.nav_closed {
-        display: none;
+    &.nav_open {
+        animation: navopening 0.5s;
+        margin-top: 0;
 
         @include desktop() {
-            display: block;
+            margin-top: 0;
+        }
+    }
+
+    &.nav_closed {
+        animation: navclosing 0.5s;
+        margin-top: -101%;
+
+        @include desktop() {
+            margin-top: 0;
         }
     }
 
@@ -51,6 +72,7 @@ nav {
         background-color: transparent;
         border-bottom: 0;
         margin-right: 20px;
+        margin-top: 0;
         width: initial;
         padding-top: 440px;
     }
