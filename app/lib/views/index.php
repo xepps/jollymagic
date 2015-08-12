@@ -16,7 +16,7 @@
         <span class="menu_text menu_close_text">X</span>
     </button>
 
-    <nav class="nav_closed">
+    <nav>
         <ul>
             <? foreach ($nav as $navItem): ?>
             <li>
