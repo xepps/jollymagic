@@ -5,21 +5,23 @@
         "backgroundImage": "alan.png",
         "title": "Hi, I'm Al Jolly!",
         "bodyText": [
-            "I have entertained children for over 25 years and I perform fun and colourful puppet and magic shows for children of all ages.",
-            "I work hard to ensure the whole family is entertained. I can also provide party games with music and prizes.",
-            "Please be assured I pass an annual P.N.C (Police National Computer) check, have all my electrical equipment P.A.T tested each year and hold extensive Public Liability Insurance for your peace of mind."
+            "I have over 30 years experience as an entertainer, performing fun and colourful puppet and magic shows (complete with party games, prizes and music!) for children of all ages."
+            "My shows are guaranteed to provide a laughter filled, memorable occasion for the whole family."
+            "And of course you can rest assured I pass an annual P.N.C (Police National Computer) check and all my electrical equipment is P.A.T tested each year."
+            "Please do contact me to discuss your ideas and requirements."
         ]
     },
     "safeguarding-children": {
         "url": "/safeguarding-children",
-        "navTitle": "Safeguarding Children",
+        "navTitle": "Shows For Schools",
         "backgroundImage": "owl.png",
-        "title": "Safeguarding Children",
+        "title": "Shows For Schools",
         "bodyText": [
-            "Our objective is to provide simple and clear messages to Primary School children [Key Stage 2; 7 to 11 years] on the subject of \"Community Safety and Cohesion\" to ensure personal safety measures are embedded at an early age, in under 50 minutes!",
-            "The key message of 'We all protect each other' is complemented by appropriate magical effects, and even the appearance of 'Buddy the Puppet', are all designed to ensure the children are kept engaged and the key messages are absorbed.",
-            "The show has now been performed in over 90 schools throughout Lancashire and has enjoyed very positive feedback."
-        ]
+            "My 'Safeguarding Children Show' is designed to communicate the importance of personal safety measures to Primary School children."
+            "I deliver this 50 minute show on your school premises and with the help of 'Buddy the Puppet' and appropriate magical effects, children are guaranteed to stay engaged and absorb this essential message."   
+            "Since designing this show in collaboration with Lancashire County Police in 2011, I have performed in over 100 schools in Lancashire - with great feedback."  
+            "If you are interested in this show for your school, or children's group or club, I would love to hear from you!" 
+            ]
     },
     "close-up-magic": {
         "url": "/close-up-magic",
@@ -27,10 +29,11 @@
         "backgroundImage": "cards.png",
         "title": "Close up Magic",
         "bodyText": [
-            "Whether you want \"stroll, meet and greet\" or \"table top entertaining\" you'll be amazed by top quality magic using everyday objects, performed in a fun and friendly way right before your eyes!",
-            "Why not ask me ```to perform my unique Victorian Street Magic Act```, which encapsulates the ancient art of street chicanery where the quickness of hand deceives the eye. In addition, why not create the perfect end to your successful night with a touch of my _humourous_ __Cabaret__ / Parlour Magic Show!",
-            "Please be assured I pass an annual P.N.C (Police National Computer) check, have all my electrical equipment P.A.T tested each year and hold `extensive` Public Liability Insurance for your peace of mind.",
-            ">Ideal for your private party, wedding, Christening, that special birthday, corporate event, trade show or graduation!"
+            "Whether it's a private party, wedding, Christening, birthday, corporate event, trade show or graduation - if you want to put the 'fun' into your 'function' I'm your man!"
+            "I can perform table top entertaining, simply 'mingle' with your guests or perform full shows of Parlour Magic or Victorian Street Magic.  Whatever your requirements, you'll be amazed by top quality magic using everyday objects, performed in a fun and friendly way right before your eyes!",
+           "And of course you can rest assured I pass an annual P.N.C (Police National Computer) check and all my electrical equipment is P.A.T tested each year."
+           "Please do get in touch and together we can make your function magical."
+            
         ]
     },
     "balloon-modelling": {
@@ -39,9 +42,9 @@
         "backgroundImage": "balloons.png",
         "title": "Balloon Modelling",
         "bodyText": [
-            "Balloon modelling will not only bring fun & colour to your event but it also enhances the party atmosphere.",
-            "I offer a vast range of sculptures from different animals, swords, hats, flowers and much more which become a personalised gift for each guest!",
-            "Children's parties, school shows and summer fetes are made memorable with these special balloons and adults love them too, whether the occasion is in a restaurant, function suite or at a university ball! This service can also be tailored to suit any corporate or PR event."
+            "My balloon modelling brings fun & colour to any event and enhances the party atmosphere.",
+            "I offer a vast range of sculptures from different animals, swords, hats, flowers and much more, which become a personalised gift for each guest!",
+            "Children's parties, school shows and summer fetes are made memorable with these special balloons and adults love them too, whether the occasion is in a restaurant, function suite or at a university ball! This service can also be tailored to suit any corporate or PR event.  So please do get in touch to discuss your requirements."
         ]
     },
     "contact": {
