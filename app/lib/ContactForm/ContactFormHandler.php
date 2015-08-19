@@ -84,6 +84,6 @@ class ContactFormHandler
             }
         }
         $mail .= "\n\nThank you";
-        mail('kristian@xepps.com', 'Result from jollymagic.com', $mail);
+        mail('info@jollymagic.com', 'Result from jollymagic.com', $mail, "From: automail@jollymagic.com");
     }
 }
