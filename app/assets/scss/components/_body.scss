@@ -28,5 +28,6 @@ main {
     @include desktop() {
         padding-top: 440px;
         padding-left: 320px;
+        min-height: 300px;
     }
 }
