@@ -1,43 +1,45 @@
+$nav_hidden_margin : -1000px;
+
 @-webkit-keyframes navopening {
-    0%   { margin-top: -101%}
+    0%   { margin-top: $nav_hidden_margin}
     100% { margin-top: 0;}
 }
 @-moz-keyframes navopening {
-    0%   { margin-top: -101%}
+    0%   { margin-top: $nav_hidden_margin}
     100% { margin-top: 0;}
 }
 @-ms-keyframes navopening {
-    0%   { margin-top: -101%}
+    0%   { margin-top: $nav_hidden_margin}
     100% { margin-top: 0;}
 }
 @-o-keyframes navopening {
-    0%   { margin-top: -101%}
+    0%   { margin-top: $nav_hidden_margin}
     100% { margin-top: 0;}
 }
 @keyframes navopening {
-    0%   { margin-top: -101%}
+    0%   { margin-top: $nav_hidden_margin}
     100% { margin-top: 0;}
 }
 
 @-webkit-keyframes navclosing {
     0%   { margin-top: 0;}
-    100% { margin-top: -101%;}
+    100% { margin-top: $nav_hidden_margin;}
 }
 @-moz-keyframes navclosing {
     0%   { margin-top: 0;}
-    100% { margin-top: -101%;}
+    100% { margin-top: $nav_hidden_margin;}
 }
 @-ms-keyframes navclosing {
     0%   { margin-top: 0;}
-    100% { margin-top: -101%;}
+    100% { margin-top: $nav_hidden_margin;}
 }
 @-o-keyframes navclosing {
     0%   { margin-top: 0;}
-    100% { margin-top: -101%;}
+    100% { margin-top: $nav_hidden_margin;}
 }
 @keyframes navclosing {
     0%   { margin-top: 0;}
-    100% { margin-top: -101%;}
+    100% { margin-top: $nav_hidden_margin;}
 }
 
 nav {
@@ -48,7 +50,7 @@ nav {
     border-bottom: 5px solid red;
     background-color:white;
     width: 100%;
-    margin-top: -101%;
+    margin-top: $nav_hidden_margin;
 
     ul {
         margin-left: 0;
@@ -100,7 +102,7 @@ nav {
         -moz-animation: navclosing 0.5s;
         -ms-animation: navclosing 0.5s;
         -o-animation: navclosing 0.5s;
-        margin-top: -101%;
+        margin-top: $nav_hidden_margin;
 
         @include desktop() {
             margin-top: 0;

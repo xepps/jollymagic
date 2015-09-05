@@ -22,7 +22,7 @@ class ContactFormHandler
     public function handle($request)
     {
         $response = $this->generateResponseFromRequest($request);
-
+        $this->sendMail($response);
         return $response;
     }
 
@@ -73,5 +73,17 @@ class ContactFormHandler
 
         }
         return $response;
+    }
+
+    private function sendMail($response)
+    {
+        $mail = "Hi Alan\n\nA potential client has just submitted the following details through your website:\n\n";
+        foreach ((array) $response as $key => $value) {
+            if (is_string($value)) {
+                $mail .= " - $key: $value\n";
+            }
+        }
+        $mail .= "\n\nThank you";
+        mail('info@jollymagic.com', 'Result from jollymagic.com', $mail, "From: automail@jollymagic.com");
     }
 }
