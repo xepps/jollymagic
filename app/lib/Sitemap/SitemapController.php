@@ -17,8 +17,8 @@ class SitemapController
 
     public function show()
     {
-        $sitemap = $this->getSitemapUrls($this->app['baseUrl']);
-        return $this->generateSitemap($sitemap);
+        $sitemap = $this->buildSitemap($this->app['baseUrl']);
+        return $sitemap;
     }
 
     private function getSiteConfig()
@@ -29,18 +29,13 @@ class SitemapController
         return $contentApi->fetchContent();
     }
 
-    private function getSitemapUrls($baseUrl)
+    private function buildSitemap($baseUrl)
     {
-        $sitemapUrlBuilder = new SitemapUrlBuilder(
+        $sitemapUrlBuilder = new SitemapBuilder(
             $baseUrl,
             $this->getSiteConfig()
         );
         return $sitemapUrlBuilder->build();
     }
 
-    private function generateSitemap($sitemap)
-    {
-        var_dump($sitemap);die;
-        return array();
-    }
 }
