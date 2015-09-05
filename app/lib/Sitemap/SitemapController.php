@@ -3,6 +3,7 @@
 namespace Jollymagic\Sitemap;
 
 use Jollymagic\Content\FileBasedContentApi;
+use Symfony\Component\HttpFoundation\Response;
 
 class SitemapController
 {
@@ -18,7 +19,7 @@ class SitemapController
     public function show()
     {
         $sitemap = $this->buildSitemap($this->app['baseUrl']);
-        return $sitemap;
+        return new Response($sitemap, 200, array('Content-Type' => 'text/xml'));
     }
 
     private function getSiteConfig()
