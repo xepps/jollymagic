@@ -22,7 +22,7 @@ class SitemapBuilder
 
         $urls = $this->generateSitemapStructure();
         $root = new \SimpleXMLElement($rootNode);
-        foreach($urls as $url) {
+        foreach ($urls as $url) {
             $node = $root->addChild('url');
             $node->addChild('loc', $url->loc);
             $node->addChild('changefreq', $url->changefreq);
@@ -35,7 +35,9 @@ class SitemapBuilder
     {
         $sitemapUrls = array();
         foreach ($this->siteConfig as $page) {
-            if (isset($page->doNotSitemap) && $page->doNotSitemap) continue;
+            if (isset($page->doNotSitemap) && $page->doNotSitemap) {
+                continue;
+            }
             $sitemapUrls []= (object) array(
                 'loc' => $this->baseUrl . $page->url,
                 'changefreq' => $page->changeFrequency,
