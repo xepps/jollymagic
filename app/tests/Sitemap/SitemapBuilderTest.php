@@ -25,8 +25,7 @@ class SitemapBuilderTest extends \PHPUnit_Framework_TestCase
             '</urlset>';
 
         $this->assertXmlStringEqualsXmlString(
-            $expectedSitemap
-            ,
+            $expectedSitemap,
             $sitemapBuilder->build()
         );
     }

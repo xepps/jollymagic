@@ -38,5 +38,4 @@ class SitemapController
         );
         return $sitemapUrlBuilder->build();
     }
-
 }
