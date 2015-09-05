@@ -2,6 +2,7 @@
 
 namespace Jollymagic;
 
+use Jollymagic\Sitemap\SitemapController;
 use Jollymagic\ContactForm\ContactFormHandler;
 use Jollymagic\Content\ContentController;
 use Jollymagic\Page\PageController;
@@ -14,6 +15,10 @@ class ServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {
+        $app->before(function (Request $request) use ($app) {
+            $app['baseUrl'] = 'http://'.$request->getHttpHost();
+        });
+
         $app['config'] = function () {
             return include 'config/config.php';
         };
@@ -52,9 +57,12 @@ class ServiceProvider implements ServiceProviderInterface
             );
         };
 
-        $app->before(function (Request $request) use ($app) {
-            $app['baseUrl'] = 'http://'.$request->getHttpHost();
-        });
+        $app['sitemap-controller'] = function ($app) {
+            return new SitemapController(
+                $app,
+                $app['config']
+            );
+        };
     }
 
     public function boot(Application $app)

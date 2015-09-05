@@ -10,6 +10,13 @@ $app->get(
 );
 
 $app->get(
+    '/sitemap.xml',
+    function (Silex\Application $app) {
+        return $app['sitemap-controller']->show();
+    }
+);
+
+$app->get(
     '/{page}',
     function (Silex\Application $app, $page) {
         return $app['page-controller']->show($page);
