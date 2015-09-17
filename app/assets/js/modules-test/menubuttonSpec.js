@@ -52,7 +52,6 @@ define(
 
         });
 
-
         function createNodeWithClass(className, type) {
             if (type === undefined) {
                 type = 'div';
