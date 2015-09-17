@@ -1,12 +1,14 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="With over 30 years experience as an entertainer, performing magic shows for children of all ages; my shows guarantee your occasion will always be memorable." />
     <title>Al Jolly's Jollymagic.com</title>
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/EntertainmentBusiness">
 
     <div class="page-background" style="background-image: url('<?= $baseUrl.'/image/'.$content->backgroundImage ?>');">
+        <meta itemprop="photo" content="<?= $baseUrl.'/image/'.$content->backgroundImage ?>" />
         <div class="page-overlay">
         </div>
     </div>
@@ -27,7 +29,9 @@
     </nav>
 
     <header>
-        <img src="<?= $baseUrl ?>/image/mr_jolly.png">
+        <img itemprop="logo" src="<?= $baseUrl ?>/image/mr_jolly.png">
+        <meta itemprop="name" content="Jollymagic" />
+        <meta itemprop="description" content="With over 30 years experience as an entertainer, performing magic shows for children of all ages; my shows guarantee your occasion will always be memorable." />
     </header>
 
     <main>
@@ -39,20 +43,30 @@
     </main>
 
     <footer>
-        <p><span>Email Me: </span><a href="mailto:<?= $footer->email ?>"><?= $footer->email?></a></p>
-        <p><span>Write To Me: </span><?= implode(" ● ", $footer->address) ?></p>
+        <p><span>Email Me: </span><a href="mailto:<?= $footer->email ?>" itemprop="email"><?= $footer->email?></a></p>
+        <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <span>Write To Me: </span>
+            <?= implode(" ● ", $footer->address) ?>
+            <meta itemprop="streetAddress" content="<?= $footer->address[1] ?>" />
+            <meta itemprop="addressLocality" content="<?= $footer->address[2] ?>" />
+            <meta itemprop="addressRegion" content="<?= $footer->address[3] ?>" />
+            <meta itemprop="postalCode" content="<?= $footer->address[4] ?>" />
+        </p>
+        <meta itemprop="legalName" content="<?= $footer->address[0] ?>" />
         <p><span>Call Me: </span>
             <?= trim(
                 array_reduce(
                     $footer->telephone,
                     function($carry, $number){
-                        return $carry . '<a href="tel:' . str_replace(' ', '', $number) . '">' . $number . '</a> ● ';
+                        return $carry . '<a itemprop="telephone" href="tel:' . str_replace(' ', '', $number) . '">' . $number . '</a> ● ';
                     },
                     ''
                 ),
                 " ● "
             ) ?></p>
     </footer>
+
+    <meta itemprop="paymentAccepted" content="cash, cheque, bank transfer" />
 
     <script src="/static/js/require.js"></script>
     <script src="/static/js/controller.js"></script>
