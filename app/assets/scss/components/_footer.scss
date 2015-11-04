@@ -1,6 +1,7 @@
 footer {
     background-color: rgba(255,255,255,0.7);
     clear: both;
+    display:block;
     font-family: "Helvetica Neue", "Helvetica", "Arial";
     font-size: 1.1rem;
     font-weight: 200;
@@ -9,6 +10,8 @@ footer {
     position: relative;
     text-align: center;
     width: 100%;
+    z-index: 3;
+    transform:translateZ(1px);
 
     a {
         color: black;
