@@ -29,7 +29,7 @@
     </nav>
 
     <header>
-        <img itemprop="logo" src="<?= $baseUrl ?>/image/mr_jolly.png">
+        <img itemprop="logo" src="<?= $baseUrl ?>/image/mr_jolly.png" alt="Mr Jolly logo">
         <meta itemprop="name" content="Jollymagic" />
         <meta itemprop="description" content="With over 30 years experience as an entertainer, performing magic shows for children of all ages; my shows guarantee your occasion will always be memorable." />
     </header>
