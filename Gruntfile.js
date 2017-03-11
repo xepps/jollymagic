@@ -48,12 +48,6 @@ module.exports = function(grunt) {
                 src: "*",
                 dest: "static/images/"
             },
-            requireJS: {
-                expand: true,
-                cwd: "node_modules/requirejs/",
-                src: "require.js",
-                dest: "static/js/"
-            },
             content: {
                 expand: true,
                 cwd: "app/assets/content/",
@@ -193,8 +187,7 @@ module.exports = function(grunt) {
         'install-deps',
         [
             'composer:install',
-            'bundle',
-            'copy:requireJS'
+            'bundle'
         ]
     );
 
