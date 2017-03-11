@@ -35,7 +35,7 @@
     </header>
 
     <main>
-        <h2 class="page-title"><?= $content->title ?></h2>
+        <h1 class="page-title"><?= $content->title ?></h1>
         <?= $content->body ?>
         <? foreach($content->components as $component): ?>
         <?= $component ?>
