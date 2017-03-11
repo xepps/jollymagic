@@ -38,8 +38,8 @@ module.exports = function(grunt) {
         copy: {
             jsVendor: {
                 expand: true,
-                cwd: "app/assets/js/",
-                src: "vendors/*",
+                cwd: "app/assets/js/vendors",
+                src: "*",
                 dest: "static/js/"
             },
             images: {
