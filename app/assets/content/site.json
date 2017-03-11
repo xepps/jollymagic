@@ -3,50 +3,57 @@
         "url": "/",
         "changeFrequency": "monthly",
         "priority": "1.00",
+        "description": "Over 30 years as an entertainer and magician in the Preston area, performing magic shows for children of all ages; I always guarantee a memorable performance.",
+        "keywords": ["entertainer", "magician", "magic", "experienced", "Preston", "Fylde", "show", "perform", "children", "party", "event", "laughter", "puppet", "balloon", "prizes", "Al", "Jolly"],
         "navTitle": "Mr Jolly",
         "backgroundImage": "alan.png",
-        "title": "Hi, I'm Al Jolly!",
+        "title": "Hi, I'm Al Jolly the Magician!",
         "bodyText": [
-            "I have over 30 years experience as an entertainer, performing fun and colourful puppet and magic shows (complete the party with games, prizes and music!) for children of all ages.",
+            "I have over 30 years experience as an entertainer and magician in the Fylde and Preston area, performing fun and colourful puppet and magic shows (complete the party with games, prizes and music!) for children of all ages.",
             "My shows are guaranteed to provide a laughter filled, memorable occasion for the whole family, club or school, whatever the occasion.",
-            "And of course you can rest assured I hold a DBS Enhanced Certificate along with being a member of The Lancashire Partnership Against Crime (run in association with Lancashire Constabulary) and all my electrical equipment is P.A.T. tested each year.",
-            "Please do contact me to discuss your ideas and requirements."
+            "Of course, you can rest assured I hold a DBS Enhanced Certificate along with being a member of The Lancashire Partnership Against Crime (run in association with Lancashire Constabulary) and all my electrical equipment is P.A.T. tested each year giving you peace of mind that it will be a safe event.",
+            "Please do contact me to discuss your ideas and requirements using our contact form, Facebook or Twitter."
         ]
     },
     "safeguarding-children": {
         "url": "/safeguarding-children",
         "changeFrequency": "monthly",
         "priority": "0.80",
+        "description": "My safeguarding magic shows for children are designed to teach them about safety in the community. They are delivered in schools with the local police.",
+        "keywords": ["magician", "magic", "experienced", "Preston", "Fylde", "show", "perform", "children", "event", "laughter", "puppet", "balloon", "Al", "Jolly", "Safeguarding", "Schools", "safety"],
         "navTitle": "Safeguarding Children",
         "backgroundImage": "buddy.png",
-        "title": "Safeguarding Shows For Schools",
+        "title": "Safeguarding Magic Shows For Schools",
         "bodyText": [
             "My 'Safeguarding Children Show' is designed to communicate the importance of personal safety measures to Primary School children (Key Stage 2).",
             "I deliver this 50 minute show on your school premises and with the help of 'Buddy the Puppet' and appropriate magical effects, children are guaranteed to stay engaged and absorb this essential message.",
             "Since designing this show in collaboration with Lancashire Constabulary in 2011, I have performed in over 100 schools in Lancashire and surrounding areas - with great feedback.",
             "Lesson plans incorporate Friendships, Similarities and Differences, Personal Safety, Stranger Danger and Peer Pressure have also been developed to perfectly complement my Magic Show. These can be found [here](http://wherestheline.co.uk/KS2safeguarding/ \"Safeguarding Shows For Schools Lesson plans\").",
             "If you are interested in this show for your school, or children's group or club, I would love to hear from you!" 
-            ]
+        ]
     },
     "close-up-magic": {
         "url": "/close-up-magic",
         "changeFrequency": "monthly",
         "priority": "0.80",
+        "description": "My fun magic shows are suitable for parties, weddings, christenings, birthdays, trade shows or graduations. Suitable for adults and children alike.",
+        "keywords": ["entertainer", "magician", "magic", "experience", "Preston", "Fylde", "shows", "perform", "children", "party", "trick", "event", "laughter", "balloon", "prizes", "Al", "Jolly"],
         "navTitle": "Close up Magic",
         "backgroundImage": "cards.png",
-        "title": "Close up Magic",
+        "title": "Close up Magic Shows",
         "bodyText": [
             "Whether it's a private party, wedding, Christening, birthday, corporate event, trade show or graduation - if you want to put the 'fun' into your 'function' I'm your man!",
-            "I perform table top entertaining or simply 'mingle' with your guests with my Modern Magic or my unique Victorian Street Magic. Whatever your requirements, you'll be amazed by top quality magic using everyday objects, performed in a fun and friendly way right before your eyes!",
-           "And of course you can rest assured as I hold a DBS Enhanced Certificate along with being a member of The Lancashire Partnership Against Crime (run in association with Lancashire Constabulary) and all my electrical equipment is P.A.T. tested each year.",
-           "Please do get in touch and together we can make your function magical."
-            
+            "I perform table top entertainment or simply 'mingle' with your guests with my Modern Magic or my unique Victorian Street Magic. Whatever your requirements, you'll be amazed by top quality magic using everyday objects, performed in a fun and friendly way right before your eyes!",
+            "Of course, you can rest assured as I hold a DBS Enhanced Certificate along with being a member of The Lancashire Partnership Against Crime (run in association with Lancashire Constabulary) and all my electrical equipment is P.A.T. tested each year giving you peace of mind that it will be a safe event.",
+            "Please do get in touch and together we can make your function magical."
         ]
     },
     "balloon-modelling": {
         "url": "/balloon-modelling",
         "changeFrequency": "monthly",
         "priority": "0.80",
+        "description": "If your party needs to pop, I am an experienced balloon modeller. Hire me for your child's party, summer fete or event to make swords, hats flowers and more!",
+        "keywords": ["entertainer", "balloon", "modelling", "magic", "experienced", "Preston", "Fylde", "shows", "perform", "children", "party", "event", "laughter", "balloon", "Al", "Jolly"],
         "navTitle": "Balloon Modelling",
         "backgroundImage": "balloons.png",
         "title": "Balloon Modelling",
@@ -60,6 +67,8 @@
         "url": "/contact",
         "changeFrequency": "monthly",
         "priority": "0.80",
+        "description": "Please contact me to hire a professional, experienced entertainer and magician for your party or event in the Preston and Fylde area.",
+        "keywords": ["entertainer", "magician", "magic", "experienced", "Preston", "Fylde", "show", "perform", "children", "party", "event", "laughter", "puppet", "balloon", "prizes", "Al", "Jolly"],
         "navTitle": "Contact Me!",
         "backgroundImage": "demo.png",
         "title": "Contact Form",
@@ -70,6 +79,8 @@
     "404": {
         "backgroundImage": "alan.png",
         "doNotSitemap": true,
+        "description": "404 - Page not found",
+        "keywords": ["entertainer", "magician", "magic", "experienced", "Preston", "Fylde", "show", "perform", "children", "party", "event", "laughter", "puppet", "balloon", "prizes", "Al", "Jolly"],
         "title": "404 - Page not found",
         "bodyText": [
             "We're very sorry about this, but the page you requested could not be found.",

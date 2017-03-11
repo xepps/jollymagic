@@ -22,7 +22,7 @@ class PageController
         return $this->app['view-factory'](
             'index',
             array(
-                "baseUrl" => $this->app['baseUrl'],
+                "baseUrl" => $this->app["request"]->getBaseUrl(),
                 "content" => $model->content,
                 "footer" => $model->footer,
                 "nav" => $model->nav

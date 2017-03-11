@@ -44,3 +44,7 @@ $app->get(
         return $app['image-controller']->show($image);
     }
 );
+
+$app->error(function (\Exception $e, $code) use ($app) {
+    return $app['page-controller']->show(404);
+});

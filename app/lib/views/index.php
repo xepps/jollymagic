@@ -1,13 +1,16 @@
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="With over 30 years experience as an entertainer, performing magic shows for children of all ages; my shows guarantee your occasion will always be memorable." />
+    <meta name="description" content="<?= $content->description ?>" />
+    <meta name="keywords" content="<?= implode(', ', $content->keywords) ?>" />
     <title>Al Jolly's Jollymagic.com</title>
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/image/favicon.ico" type="image/x-icon">
 </head>
 <body itemscope itemtype="http://schema.org/EntertainmentBusiness">
 
-    <div class="page-background" style="background-image: url('<?= $baseUrl.'/image/'.$content->backgroundImage ?>');">
+    <div class="page-background page-background--<?= strstr($content->backgroundImage, '.', true) ?>">
         <meta itemprop="photo" content="<?= $baseUrl.'/image/'.$content->backgroundImage ?>" />
         <div class="page-overlay">
         </div>
@@ -29,13 +32,13 @@
     </nav>
 
     <header>
-        <img itemprop="logo" src="<?= $baseUrl ?>/image/mr_jolly.png">
+        <img itemprop="logo" src="<?= $baseUrl ?>/image/mr_jolly.png" alt="Mr Jolly logo">
         <meta itemprop="name" content="Jollymagic" />
-        <meta itemprop="description" content="With over 30 years experience as an entertainer, performing magic shows for children of all ages; my shows guarantee your occasion will always be memorable." />
+        <meta itemprop="description" content="<?= $content->description ?>" />
     </header>
 
     <main>
-        <h2 class="page-title"><?= $content->title ?></h2>
+        <h1 class="page-title"><?= $content->title ?></h1>
         <?= $content->body ?>
         <? foreach($content->components as $component): ?>
         <?= $component ?>
@@ -44,7 +47,7 @@
 
     <footer>
         <p><span>Like Me: </span><a href="https://www.facebook.com/jollymagic">facebook.com/jollymagic</a></p>
-        <p><span>Email Me: </span><a href="mailto:<?= $footer->email ?>" itemprop="email"><?= $footer->email?></a></p>
+        <p><span>Email Me: </span><a class="email-address" itemprop="email"><?= $footer->email ?></a></p>
         <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
             <span>Write To Me: </span>
             <?= implode(" ● ", $footer->address) ?>
@@ -65,6 +68,8 @@
                 ),
                 " ● "
             ) ?></p>
+        <a class="twitter-mention-button" href="https://twitter.com/intent/tweet?screen_name=Jollymagic&text=Please entertain us" data-size="large">Tweet @Jollymagic</a>
+        <div class="fb-follow" data-href="https://www.facebook.com/jollymagic" data-width="300" data-layout="standard" data-size="large" data-show-faces="true"></div>
     </footer>
 
     <meta itemprop="paymentAccepted" content="cash, cheque, bank transfer" />
@@ -89,6 +94,36 @@
         ga('send', 'pageview');
 
     </script>
+
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=1756516937993502";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+        window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+
+            t._e = [];
+            t.ready = function(f) {
+                t._e.push(f);
+            };
+
+            return t;
+        }(document, "script", "twitter-wjs"));
+    </script>
+
 
 </body>
 </html>

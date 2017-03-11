@@ -38,8 +38,8 @@ module.exports = function(grunt) {
         copy: {
             jsVendor: {
                 expand: true,
-                cwd: "app/assets/js/",
-                src: "vendors/*",
+                cwd: "app/assets/js/vendors",
+                src: "*",
                 dest: "static/js/"
             },
             images: {
@@ -47,12 +47,6 @@ module.exports = function(grunt) {
                 cwd: "app/assets/images/",
                 src: "*",
                 dest: "static/images/"
-            },
-            requireJS: {
-                expand: true,
-                cwd: "node_modules/requirejs/",
-                src: "require.js",
-                dest: "static/js/"
             },
             content: {
                 expand: true,
@@ -193,8 +187,7 @@ module.exports = function(grunt) {
         'install-deps',
         [
             'composer:install',
-            'bundle',
-            'copy:requireJS'
+            'bundle'
         ]
     );
 
