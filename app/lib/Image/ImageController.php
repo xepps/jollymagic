@@ -37,7 +37,7 @@ class ImageController
             200,
             array(
                 'content-type' => 'image/png',
-                'cache-control' => 'public, max-age=7200'
+                'cache-control' => 'public, max-age=259200'
             )
         );
     }
