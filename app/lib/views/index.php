@@ -44,7 +44,7 @@
 
     <footer>
         <p><span>Like Me: </span><a href="https://www.facebook.com/jollymagic">facebook.com/jollymagic</a></p>
-        <p><span>Email Me: </span><a href="mailto:<?= $footer->email ?>" itemprop="email"><?= $footer->email?></a></p>
+        <p><span>Email Me: </span><a class="email-address" itemprop="email"><?= $footer->email ?></a></p>
         <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
             <span>Write To Me: </span>
             <?= implode(" ● ", $footer->address) ?>
