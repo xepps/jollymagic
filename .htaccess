@@ -1,6 +1,10 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    #RewriteBase /path/to/app
+
+	RewriteBase /
+	RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+	RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ app/lib/front.php [QSA,L]
 </IfModule>
