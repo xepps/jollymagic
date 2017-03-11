@@ -60,6 +60,7 @@ class ContentPresenter implements Presenter
         return new Page(
             $pageData->title,
             $pageData->description,
+            $pageData->keywords,
             $bodyText,
             $pageComponents,
             $pageData->backgroundImage

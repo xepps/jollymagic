@@ -2,8 +2,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?= $content->description ?>" />
+    <meta name="keywords" content="<?= implode(', ', $content->keywords) ?>" />
     <title>Al Jolly's Jollymagic.com</title>
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/image/favicon.ico" type="image/x-icon">
 </head>
 <body itemscope itemtype="http://schema.org/EntertainmentBusiness">
 

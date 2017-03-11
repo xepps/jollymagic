@@ -45,6 +45,6 @@ $app->get(
     }
 );
 
-$app->error(function(\Exception $e, $code) use ($app) {
+$app->error(function (\Exception $e, $code) use ($app) {
     return $app['page-controller']->show(404);
 });
