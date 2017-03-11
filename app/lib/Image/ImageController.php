@@ -36,7 +36,8 @@ class ImageController
             $stream,
             200,
             array(
-                'Content-Type' => 'image/png'
+                'content-type' => 'image/png',
+                'cache-control' => 'public, max-age=7200'
             )
         );
     }
