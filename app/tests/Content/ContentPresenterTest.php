@@ -17,6 +17,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
             "home" => (object) array(
                 "url" => "/",
                 "navTitle" => "Mr Jolly",
+                "description" => "I'm a description",
                 "backgroundImage" => "alan.jpeg",
                 "title" => "Hi, I'm Al Jolly",
                 "bodyText" => array(
@@ -27,6 +28,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
             "second" => (object) array(
                 "url" => "/second",
                 "navTitle" => "Title",
+                "description" => "I'm a description",
                 "backgroundImage" => "image.jpeg",
                 "title" => "Hi, I'm Al Jolly",
                 "bodyText" => array(
@@ -37,6 +39,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
             "booking" => (object) array(
                 "url" => "/booking",
                 "navTitle" => "booking",
+                "description" => "I'm a description",
                 "backgroundImage" => "image.jpeg",
                 "title" => "Book me",
                 "bodyText" => array(
@@ -72,6 +75,7 @@ class ContentPresenterTest extends \PHPUnit_Framework_TestCase
         $page = $contentPresenter->present();
 
         $this->assertEquals($this->mockContentApi->content->home->title, $page->content->title);
+        $this->assertEquals($this->mockContentApi->content->home->description, $page->content->description);
         $this->assertEquals($expectedBodyText, $page->content->body);
         $this->assertEquals($this->mockContentApi->content->home->backgroundImage, $page->content->backgroundImage);
 
