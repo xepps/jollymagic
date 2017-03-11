@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="With over 30 years experience as an entertainer, performing magic shows for children of all ages; my shows guarantee your occasion will always be memorable." />
