@@ -7,7 +7,7 @@
 </head>
 <body itemscope itemtype="http://schema.org/EntertainmentBusiness">
 
-    <div class="page-background" style="background-image: url('<?= $baseUrl.'/image/'.$content->backgroundImage ?>');">
+    <div class="page-background page-background--<?= strstr($content->backgroundImage, '.', true) ?>">
         <meta itemprop="photo" content="<?= $baseUrl.'/image/'.$content->backgroundImage ?>" />
         <div class="page-overlay">
         </div>

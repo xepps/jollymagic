@@ -1,5 +1,4 @@
 .page-background {
-    background-image: image-url('alan.png');
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,4 +16,24 @@
     height: 100%;
     z-index: 1;
     position: fixed;
+}
+
+.page-background--alan {
+    background-image: image-url('alan.png');
+}
+
+.page-background--buddy {
+    background-image: image-url('buddy.png');
+}
+
+.page-background--cards {
+    background-image: image-url('cards.png');
+}
+
+.page-background--balloons {
+    background-image: image-url('balloons.png');
+}
+
+.page-background--demo {
+    background-image: image-url('demo.png');
 }
