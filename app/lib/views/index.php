@@ -68,7 +68,7 @@
                 ),
                 " ● "
             ) ?></p>
-        <a class="twitter-mention-button" href="https://twitter.com/intent/tweet?screen_name=Jollymagic&text=Please entertain us" data-size="large">Tweet @Jollymagic</a>
+        <a class="twitter-mention-button" href="https://twitter.com/intent/tweet?screen_name=MrAlJolly&text=Please entertain us" data-size="large">Tweet @MrAlJolly</a>
         <div class="fb-follow" data-href="https://www.facebook.com/jollymagic" data-width="300" data-layout="standard" data-size="large" data-show-faces="true"></div>
     </footer>
 
