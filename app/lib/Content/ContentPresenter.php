@@ -23,14 +23,22 @@ class ContentPresenter implements Presenter
     public function present()
     {
         $data = $this->api->fetchContent();
+        $reviews = $this->api->fetchReviews();
         $footer = $this->api->fetchFooter();
 
         return (object) array(
             'content' => $this->buildPageContents($this->page, $data),
             'footer' => $footer,
             'nav' => $this->buildNav($data),
+            'review' => $this->getRandomReview($reviews),
             'statusCode' => 200
         );
+    }
+
+    private function getRandomReview($reviews) 
+    {
+        shuffle($reviews);
+        return $reviews[0];
     }
 
     /***
@@ -63,7 +71,8 @@ class ContentPresenter implements Presenter
             $pageData->keywords,
             $bodyText,
             $pageComponents,
-            $pageData->backgroundImage
+            $pageData->backgroundImage,
+            $pageData->displayReview
         );
     }
 

@@ -10,8 +10,9 @@ class Page
     public $body;
     public $components;
     public $backgroundImage;
-
-    public function __construct($title, $description, $keywords, $body, $components, $backgroundImage)
+    public $displayReview;
+    
+    public function __construct($title, $description, $keywords, $body, $components, $backgroundImage, $displayReview)
     {
         $this->title = $title;
         $this->description = $description;
@@ -19,5 +20,6 @@ class Page
         $this->body = $body;
         $this->components = $components;
         $this->backgroundImage = $backgroundImage;
+        $this->displayReview = $displayReview;
     }
 }

@@ -24,6 +24,7 @@ class PageController
             array(
                 "baseUrl" => $this->app["request"]->getBaseUrl(),
                 "content" => $model->content,
+                "review" => $model->review,
                 "footer" => $model->footer,
                 "nav" => $model->nav
             ),

@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
     <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 </head>
 <body itemscope itemtype="http://schema.org/EntertainmentBusiness">
 
@@ -25,7 +26,7 @@
         <ul>
             <? foreach ($nav as $navItem): ?>
             <li>
-                <a href="<?= $baseUrl.$navItem->url ?>"><?= $navItem->title ?></a>
+                <a href="<?= $navItem->url ?>"><?= $navItem->title ?></a>
             </li>
             <? endforeach; ?>
         </ul>
@@ -43,20 +44,21 @@
         <? foreach($content->components as $component): ?>
         <?= $component ?>
         <? endforeach; ?>
+
+        <aside class="review review--<?= $content->displayReview ?>">
+            <div class="review__content">
+                <img src="<?= $baseUrl.'/image/'.$review->image ?>" alt="<?= $image->name ?>" class="review__image" />
+                <p class="review__text">"<?= $review->text ?>"</p>
+            </div>
+            <p class="review__attribution">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                - <span class="review__attribution__name"><?= $review->name ?></span> on <span class="review__attribution__date"><?= $review->date ?></span>
+            </p>
+            <a class="review__see-more" href="https://www.facebook.com/jollymagic/reviews/" target="__blank">See more on Facebook</a>
+        </aside>
     </main>
 
     <footer>
-        <p><span>Like Me: </span><a href="https://www.facebook.com/jollymagic">facebook.com/jollymagic</a></p>
-        <p><span>Email Me: </span><a class="email-address" itemprop="email"><?= $footer->email ?></a></p>
-        <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-            <span>Write To Me: </span>
-            <?= implode(" ● ", $footer->address) ?>
-            <meta itemprop="streetAddress" content="<?= $footer->address[1] ?>" />
-            <meta itemprop="addressLocality" content="<?= $footer->address[2] ?>" />
-            <meta itemprop="addressRegion" content="<?= $footer->address[3] ?>" />
-            <meta itemprop="postalCode" content="<?= $footer->address[4] ?>" />
-        </p>
-        <meta itemprop="legalName" content="<?= $footer->address[0] ?>" />
         <p><span>Call Me: </span>
             <?= trim(
                 array_reduce(
@@ -68,6 +70,17 @@
                 ),
                 " ● "
             ) ?></p>
+        <p><span>Email Me: </span><a class="email-address" itemprop="email"><?= $footer->email ?></a></p>
+        <p><span>Like Me: </span><a href="https://www.facebook.com/jollymagic">facebook.com/jollymagic</a></p>
+        <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <span>Write To Me: </span>
+            <?= implode(" ● ", $footer->address) ?>
+            <meta itemprop="streetAddress" content="<?= $footer->address[1] ?>" />
+            <meta itemprop="addressLocality" content="<?= $footer->address[2] ?>" />
+            <meta itemprop="addressRegion" content="<?= $footer->address[3] ?>" />
+            <meta itemprop="postalCode" content="<?= $footer->address[4] ?>" />
+        </p>
+        <meta itemprop="legalName" content="<?= $footer->address[0] ?>" />
         <a class="twitter-mention-button" href="https://twitter.com/intent/tweet?screen_name=MrAlJolly&text=Please entertain us" data-size="large">Tweet @MrAlJolly</a>
         <div class="fb-follow" data-href="https://www.facebook.com/jollymagic" data-width="300" data-layout="standard" data-size="large" data-show-faces="true"></div>
     </footer>

@@ -1,0 +1,64 @@
+.review {
+    z-index: 3;
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    background-color: rgba(255,255,255,0.8);
+    padding: 16px;
+
+    .fa-star {
+        color: #ffcc00;
+    }
+
+    &--off {
+        display: none;
+    }
+}
+
+.review__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet() {
+        flex-direction: row;
+    }
+}
+
+.review__image {
+    border-radius: 50%;
+    height: 120px;
+    margin: 16px;
+    box-shadow: 2px 2px 2px #ccc;
+}
+
+.review__text {
+    font-family: "Helvetica Neue", "Helvetica", "Arial";
+    background: none;
+    font-weight: 300;
+    margin: 0;
+    font-style:italic;
+}
+
+.review__attribution {
+    background: none;
+    display: block;
+    text-align: right;
+    width: 100%;
+    margin: 0;
+}
+
+.review__attribution {
+    &__name,
+    &__date {
+        font-weight: 400;
+    }
+}
+
+.review__see-more {
+    font-family: "Helvetica Neue", "Helvetica", "Arial";
+    font-weight: 300;
+    display: block;
+    text-align: right;
+    width: 100%;
+}

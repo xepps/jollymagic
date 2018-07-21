@@ -20,6 +20,15 @@ class FileBasedContentApi implements ContentApi
         );
     }
 
+    public function fetchReviews()
+    {
+        return json_decode(
+            file_get_contents(
+                $this->contentDir.'reviews.json'
+            )
+        );
+    }
+
     public function fetchFooter()
     {
         return json_decode(
